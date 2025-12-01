@@ -96,8 +96,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-xs font-mono">© {new Date().getFullYear()} Burrell & Co. Mobile Detailing. All rights reserved.</p>
           <div className="flex gap-6 text-xs text-slate-500 font-mono">
-            <Link to="/privacy" className="hover:text-slate-300">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-slate-300">Terms of Service</Link>
+            {/* Privacy and Terms links removed as pages do not exist yet */}
           </div>
         </div>
       </div>

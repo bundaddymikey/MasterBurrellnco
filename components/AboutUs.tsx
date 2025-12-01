@@ -3,17 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './Button';
 import { ChevronDown, ChevronUp, Loader2, History } from 'lucide-react';
 
-const CAROUSEL_IMAGES = [
-  "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1552930294-de5b0f175d8e?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1507138451611-31e51e23463e?q=80&w=1000&auto=format&fit=crop"
-];
-
 export const AboutUs: React.FC = () => {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
   const [isMissionExpanded, setIsMissionExpanded] = useState(false);
-  const [isImageLoading, setIsImageLoading] = useState(true);
   const buttonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -110,12 +102,12 @@ export const AboutUs: React.FC = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+        <div className="flex flex-col items-center text-center">
 
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="relative"
@@ -158,7 +150,7 @@ export const AboutUs: React.FC = () => {
               Who We Are.
             </motion.h3>
 
-            <div className="space-y-6 text-slate-300 text-lg leading-relaxed font-sans">
+            <div className="space-y-6 text-slate-300 text-lg leading-relaxed font-sans max-w-3xl mx-auto">
               <p>
                 At <span className="text-white font-semibold">Burrell & Co.</span>, we believe every car deserves showroom level care, inside and out. We specialize in high quality professional detailing that brings back that fresh off the lot feel.
               </p>
@@ -169,7 +161,7 @@ export const AboutUs: React.FC = () => {
                 Whether it is a quick wash or a full interior restoration, we are here to deliver results that make you look twice.
               </p>
 
-              <div className="mt-8 mb-6 bg-black/40 rounded-xl border-l-4 border-brand-gold backdrop-blur-sm overflow-hidden transition-colors hover:bg-black/50">
+              <div className="mt-8 mb-6 bg-black/40 rounded-xl border-l-4 border-brand-gold backdrop-blur-sm overflow-hidden transition-colors hover:bg-black/50 text-left">
                 <button
                   onClick={() => setIsMissionExpanded(!isMissionExpanded)}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none group"
@@ -197,7 +189,7 @@ export const AboutUs: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 gap-8">
+            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 gap-8 max-w-2xl mx-auto">
               <div>
                 <div className="text-4xl font-serif font-bold text-brand-gold mb-1">100%</div>
                 <div className="text-xs uppercase tracking-wider text-slate-400 font-mono">Satisfaction</div>
@@ -213,131 +205,6 @@ export const AboutUs: React.FC = () => {
                 Experience the Difference - Book Now
               </Button>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="absolute -inset-10 pointer-events-none -z-10">
-              {goldDust.map((p, i) => (
-                <motion.div
-                  key={`img-${i}`}
-                  className="absolute rounded-full bg-brand-gold blur-[2px]"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    y: [0, -30, 0],
-                    x: [0, 10, 0],
-                    opacity: [0, 0.5, 0],
-                    scale: [0.8, 1.2, 0.8]
-                  }}
-                  transition={{
-                    duration: p.duration + 2,
-                    repeat: Infinity,
-                    delay: p.delay,
-                    ease: "easeInOut"
-                  }}
-                  style={{
-                    left: `${p.left}%`,
-                    top: `${p.top}%`,
-                    width: p.size * 1.5,
-                    height: p.size * 1.5,
-                  }}
-                />
-              ))}
-            </div>
-
-            <div className="aspect-square relative z-10 group perspective-[1000px]">
-              <motion.div
-                className="w-full h-full relative transition-all duration-700"
-                style={{ transformStyle: "preserve-3d" }}
-                whileHover={{ rotateY: 180 }}
-                transition={{ duration: 0.8, type: "spring", stiffness: 60, damping: 12 }}
-              >
-                <div
-                  className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-brand-darker"
-                  style={{ backfaceVisibility: 'hidden' }}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center bg-brand-darker z-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-brand-darker" />
-
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-                      initial={{ x: "-100%" }}
-                      animate={{ x: "100%" }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.5,
-                        ease: "linear"
-                      }}
-                    />
-
-                    <AnimatePresence>
-                      {isImageLoading && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="relative z-10 flex flex-col items-center gap-3"
-                        >
-                          <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
-                            <motion.div
-                              className="h-full bg-brand-gold"
-                              initial={{ x: "-100%" }}
-                              animate={{ x: "100%" }}
-                              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-                            />
-                          </div>
-                          <span className="text-xs text-brand-gold/70 tracking-widest uppercase font-mono">Loading Content</span>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <img
-                    src={`${CAROUSEL_IMAGES[0]}&q=60&w=800`}
-                    alt="Burrell & Co Team Detailing"
-                    loading="lazy"
-                    onLoad={() => setIsImageLoading(false)}
-                    className="w-full h-full object-cover absolute inset-0 z-10"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-20"></div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-8 z-20 pointer-events-none">
-                    <div className="bg-black/80 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-lg">
-                      <p className="text-white font-serif italic text-lg">
-                        "Precision isn't just a requirement, it's our passion."
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30 bg-brand-darker p-10 flex flex-col justify-center items-center text-center"
-                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-gold/10 to-transparent opacity-40" />
-                  <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 mx-auto mb-6 bg-brand-gold/10 rounded-full flex items-center justify-center border border-brand-gold/20 text-brand-gold">
-                      <History size={32} />
-                    </div>
-                    <h3 className="text-3xl font-serif font-bold text-white mb-4">Our Roots</h3>
-                    <div className="w-12 h-1 bg-brand-gold mx-auto mb-6 rounded-full"></div>
-                    <p className="text-slate-300 leading-relaxed text-lg font-sans">
-                      Founded on the principle of perfection. What started as a passion project has grown into the region's premier mobile detailing service. Since 2018, we've treated every vehicle with the respect of a showroom masterpiece, defining what it means to have a true <span className="text-brand-gold font-serif italic">Burrell & Co.</span> shine.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="absolute top-6 -right-6 w-full h-full border-2 border-brand-gold/20 rounded-2xl -z-10 hidden md:block"></div>
           </motion.div>
 
         </div>
