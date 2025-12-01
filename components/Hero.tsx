@@ -4,25 +4,11 @@ import { MapPin } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 export const Hero: React.FC = () => {
-  const [contactIndex, setContactIndex] = useState(0);
   const { scrollY } = useScroll();
 
   // Dynamic effects based on scroll position
   const backgroundBlur = useTransform(scrollY, [0, 600], ["blur(0px)", "blur(12px)"]);
   const backgroundScale = useTransform(scrollY, [0, 600], [1, 1.1]);
-
-  const contacts = [
-    "Shawn@Burrellnco.com",
-    "951-751-4278 | 310-912-4666",
-    "24 hours 7 days a week"
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setContactIndex((prev) => (prev + 1) % contacts.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
@@ -94,16 +80,6 @@ export const Hero: React.FC = () => {
             className="h-1 w-20 bg-brand-gold mx-auto mt-6 mb-10"
           />
 
-          {/* Description / Guarantee */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-2xl text-white max-w-2xl mx-auto mb-12 font-light leading-relaxed font-mono"
-          >
-            Satisfaction guaranteed, or we'll return your dirt!
-          </motion.p>
-
           {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -121,41 +97,43 @@ export const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Rotating Contact Info Box */}
+        {/* Centered Marquee Box */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="hidden lg:flex absolute bottom-12 right-8 max-w-sm w-full"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 max-w-2xl w-full px-4"
         >
-          <div className="w-full border-2 border-dashed border-brand-gold/30 rounded-lg relative p-6 flex flex-col items-center justify-center backdrop-blur-md bg-brand-darker/40 overflow-hidden group hover:border-brand-gold/60 transition-colors duration-500">
+          <div className="w-full border-2 border-dashed border-brand-gold/30 rounded-lg relative py-4 px-8 flex items-center justify-center backdrop-blur-md bg-brand-darker/40 overflow-hidden group hover:border-brand-gold/60 transition-colors duration-500">
 
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
             <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
             <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
 
-            <AnimatePresence mode="wait">
+            <div className="overflow-hidden whitespace-nowrap w-full">
               <motion.div
-                key={contactIndex}
-                initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="text-lg font-bold text-white text-center tracking-tight z-10 mb-2 w-full font-mono"
+                animate={{ x: [0, -1000] }}
+                transition={{
+                  repeat: Infinity,
+                  ease: "linear",
+                  duration: 20,
+                }}
+                className="inline-block"
               >
-                {contacts[contactIndex]}
+                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  Satisfaction guaranteed, or we'll return your dirt!
+                </span>
+                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  Satisfaction guaranteed, or we'll return your dirt!
+                </span>
+                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  Satisfaction guaranteed, or we'll return your dirt!
+                </span>
+                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  Satisfaction guaranteed, or we'll return your dirt!
+                </span>
               </motion.div>
-            </AnimatePresence>
-
-            <div className="w-full h-0.5 bg-white/10 rounded-full overflow-hidden mt-2">
-              <motion.div
-                key={contactIndex}
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 3, ease: "linear" }}
-                className="h-full bg-brand-gold"
-              />
             </div>
           </div>
         </motion.div>
