@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://burrellnco.com/sitemap.xml
