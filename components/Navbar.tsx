@@ -94,7 +94,12 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="/logo.png" alt="Burrell & Co. Logo" className="h-12 w-auto object-contain" />
+            <div className="flex flex-col">
+              <span className="font-display font-bold text-2xl md:text-3xl text-white tracking-tight leading-none">
+                Burrell <span className="text-brand-gold">&</span> Co.
+              </span>
+              <span className="text-[0.6rem] uppercase tracking-[0.2em] text-slate-400 font-sans pl-1">Mobile Detailing</span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
