@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 
 interface Project {
     id: string;
-    title: string;
-    category: string;
     coverImage: string;
     images: string[];
 }
@@ -13,8 +11,6 @@ interface Project {
 const PROJECTS: Project[] = [
     {
         id: 'mercedes-gle',
-        title: 'Mercedes-AMG GLE Coupe',
-        category: 'Full Detail',
         coverImage: '/gallery/mercedes-gle/1.png',
         images: [
             '/gallery/mercedes-gle/1.png',
@@ -25,8 +21,6 @@ const PROJECTS: Project[] = [
     },
     {
         id: 'ford-ranger',
-        title: 'Ford Ranger Sport',
-        category: 'Interior & Exterior',
         coverImage: '/gallery/ford-ranger/1.png',
         images: [
             '/gallery/ford-ranger/1.png',
@@ -38,8 +32,6 @@ const PROJECTS: Project[] = [
     },
     {
         id: 'lexus-is',
-        title: 'Lexus IS F Sport',
-        category: 'Maintenance Wash',
         coverImage: '/gallery/lexus-is/2.png',
         images: [
             '/gallery/lexus-is/2.png',
@@ -51,8 +43,6 @@ const PROJECTS: Project[] = [
     },
     {
         id: 'chevy-camaro',
-        title: 'Chevrolet Camaro',
-        category: 'Exterior Detail',
         coverImage: '/gallery/chevy-camaro/1.jpg',
         images: [
             '/gallery/chevy-camaro/1.jpg',
@@ -60,6 +50,41 @@ const PROJECTS: Project[] = [
             '/gallery/chevy-camaro/3.jpg',
             '/gallery/chevy-camaro/4.jpg',
             '/gallery/chevy-camaro/5.jpg'
+        ]
+    },
+    {
+        id: 'project-5',
+        coverImage: '/gallery/untitled folder/IMG_1359 2.heic.jpg',
+        images: [
+            '/gallery/untitled folder/IMG_1359 2.heic.jpg'
+        ]
+    },
+    {
+        id: 'project-6',
+        coverImage: '/gallery/untitled folder 2/IMG_1363.heic.jpg',
+        images: [
+            '/gallery/untitled folder 2/IMG_1363.heic.jpg',
+            '/gallery/untitled folder 2/IMG_1372.heic.jpg'
+        ]
+    },
+    {
+        id: 'project-7',
+        coverImage: '/gallery/untitled folder 3/IMG_3658.heic.jpg',
+        images: [
+            '/gallery/untitled folder 3/IMG_3658.heic.jpg',
+            '/gallery/untitled folder 3/IMG_3659.heic.jpg',
+            '/gallery/untitled folder 3/IMG_3660.heic.jpg',
+            '/gallery/untitled folder 3/IMG_3661.heic.jpg',
+            '/gallery/untitled folder 3/IMG_4090.heic.jpg'
+        ]
+    },
+    {
+        id: 'project-8',
+        coverImage: '/gallery/untitled folder 4/IMG_3720.heic.jpg',
+        images: [
+            '/gallery/untitled folder 4/IMG_3720.heic.jpg',
+            '/gallery/untitled folder 4/IMG_3728.heic.jpg',
+            '/gallery/untitled folder 4/IMG_3729.heic.jpg'
         ]
     }
 ];
@@ -116,23 +141,19 @@ export const Gallery: React.FC = () => {
                             className="group cursor-pointer"
                             onClick={() => openProject(project)}
                         >
-                            <div className="relative aspect-[4/3] overflow-hidden rounded-xl mb-4">
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300 z-10" />
+                            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-900">
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10" />
                                 <img
                                     src={project.coverImage}
-                                    alt={project.title}
+                                    alt="Gallery Project"
                                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className="text-white text-sm font-medium">View {project.images.length} Photos</span>
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                                    <div className="bg-black/50 backdrop-blur-sm p-3 rounded-full text-white">
+                                        <Camera size={24} />
+                                    </div>
                                 </div>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-brand-gold transition-colors">
-                                {project.title}
-                            </h3>
-                            <p className="text-sm text-brand-gold font-mono uppercase tracking-wider">
-                                {project.category}
-                            </p>
                         </motion.div>
                     ))}
                 </div>
@@ -160,45 +181,46 @@ export const Gallery: React.FC = () => {
                                 <img
                                     key={currentImageIndex}
                                     src={selectedProject.images[currentImageIndex]}
-                                    alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
+                                    alt={`Gallery Image ${currentImageIndex + 1}`}
                                     className="max-w-full max-h-full object-contain"
                                 />
 
-                                <button
-                                    onClick={prevImage}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-brand-gold hover:text-black text-white p-2 rounded-full transition-all backdrop-blur-sm"
-                                >
-                                    <ChevronLeft size={24} />
-                                </button>
+                                {selectedProject.images.length > 1 && (
+                                    <>
+                                        <button
+                                            onClick={prevImage}
+                                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-brand-gold hover:text-black text-white p-2 rounded-full transition-all backdrop-blur-sm"
+                                        >
+                                            <ChevronLeft size={24} />
+                                        </button>
 
-                                <button
-                                    onClick={nextImage}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-brand-gold hover:text-black text-white p-2 rounded-full transition-all backdrop-blur-sm"
-                                >
-                                    <ChevronRight size={24} />
-                                </button>
+                                        <button
+                                            onClick={nextImage}
+                                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-brand-gold hover:text-black text-white p-2 rounded-full transition-all backdrop-blur-sm"
+                                        >
+                                            <ChevronRight size={24} />
+                                        </button>
+                                    </>
+                                )}
                             </div>
 
-                            <div className="mt-4 flex gap-2 overflow-x-auto max-w-full pb-2 px-4">
-                                {selectedProject.images.map((img, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setCurrentImageIndex(idx);
-                                        }}
-                                        className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${currentImageIndex === idx ? 'border-brand-gold opacity-100' : 'border-transparent opacity-50 hover:opacity-80'
-                                            }`}
-                                    >
-                                        <img src={img} alt="" className="w-full h-full object-cover" />
-                                    </button>
-                                ))}
-                            </div>
-
-                            <div className="text-center mt-4">
-                                <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
-                                <p className="text-brand-gold font-mono text-sm">{currentImageIndex + 1} / {selectedProject.images.length}</p>
-                            </div>
+                            {selectedProject.images.length > 1 && (
+                                <div className="mt-4 flex gap-2 overflow-x-auto max-w-full pb-2 px-4">
+                                    {selectedProject.images.map((img, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setCurrentImageIndex(idx);
+                                            }}
+                                            className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${currentImageIndex === idx ? 'border-brand-gold opacity-100' : 'border-transparent opacity-50 hover:opacity-80'
+                                                }`}
+                                        >
+                                            <img src={img} alt="" className="w-full h-full object-cover" />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </motion.div>
                 )}
