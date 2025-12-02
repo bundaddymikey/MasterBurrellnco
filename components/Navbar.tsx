@@ -96,7 +96,7 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center gap-2 group">
             <div className="flex flex-col">
               <span className="font-display font-bold text-2xl md:text-3xl text-white tracking-tight leading-none">
-                Burrell <span className="text-brand-gold">&</span> Co.
+                Burrell <span className="text-brand-gold font-serif italic">&</span> Co.
               </span>
               <span className="text-[0.6rem] uppercase tracking-[0.2em] text-slate-400 font-sans pl-1">Mobile Detailing</span>
             </div>
