@@ -38,7 +38,7 @@ export const SERVICES: ServicePackage[] = [
       'Steam sanitization',
       'Streak-free window cleaning'
     ],
-    image: 'https://images.unsplash.com/photo-1588756681780-9d78505c2106?q=80&w=800&auto=format&fit=crop',
+    image: '/gallery/mercedes-gle/2.png',
     popular: true
   },
   {
@@ -76,7 +76,7 @@ export const SERVICES: ServicePackage[] = [
       'Safe degreasing and dressing',
       'Protects plastic and rubber components'
     ],
-    image: 'https://images.unsplash.com/photo-1552930294-de196153d83f?q=80&w=800&auto=format&fit=crop'
+    image: '/gallery/ford-ranger/4.png'
   }
 ];
 
