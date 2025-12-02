@@ -61,18 +61,6 @@ const PROJECTS: Project[] = [
             '/gallery/chevy-camaro/4.jpg',
             '/gallery/chevy-camaro/5.jpg'
         ]
-    },
-    {
-        id: 'dodge-ram',
-        title: 'Dodge Ram',
-        category: 'Full Detail',
-        coverImage: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=1000&auto=format&fit=crop',
-        images: [
-            'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=1000&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1552930294-de5b0f175d8e?q=80&w=1000&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1507138451611-31e51e23463e?q=80&w=1000&auto=format&fit=crop'
-        ]
     }
 ];
 

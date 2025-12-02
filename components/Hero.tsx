@@ -95,49 +95,52 @@ export const Hero: React.FC = () => {
               Schedule Service
             </Button>
           </motion.div>
+
+
+          {/* Centered Marquee Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="mt-16 max-w-2xl w-full px-4"
+          >
+            <div className="w-full border-2 border-dashed border-brand-gold/30 rounded-lg relative py-4 px-8 flex items-center justify-center backdrop-blur-md bg-brand-darker/40 overflow-hidden group hover:border-brand-gold/60 transition-colors duration-500">
+
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
+
+              <div className="overflow-hidden whitespace-nowrap w-full">
+                <motion.div
+                  animate={{ x: [0, -1000] }}
+                  transition={{
+                    repeat: Infinity,
+                    ease: "linear",
+                    duration: 20,
+                  }}
+                  className="inline-block"
+                >
+                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                    Satisfaction guaranteed, or we'll return your dirt!
+                  </span>
+                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                    Satisfaction guaranteed, or we'll return your dirt!
+                  </span>
+                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                    Satisfaction guaranteed, or we'll return your dirt!
+                  </span>
+                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                    Satisfaction guaranteed, or we'll return your dirt!
+                  </span>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Centered Marquee Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 max-w-2xl w-full px-4"
-        >
-          <div className="w-full border-2 border-dashed border-brand-gold/30 rounded-lg relative py-4 px-8 flex items-center justify-center backdrop-blur-md bg-brand-darker/40 overflow-hidden group hover:border-brand-gold/60 transition-colors duration-500">
 
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
-
-            <div className="overflow-hidden whitespace-nowrap w-full">
-              <motion.div
-                animate={{ x: [0, -1000] }}
-                transition={{
-                  repeat: Infinity,
-                  ease: "linear",
-                  duration: 20,
-                }}
-                className="inline-block"
-              >
-                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
-                  Satisfaction guaranteed, or we'll return your dirt!
-                </span>
-                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
-                  Satisfaction guaranteed, or we'll return your dirt!
-                </span>
-                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
-                  Satisfaction guaranteed, or we'll return your dirt!
-                </span>
-                <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
-                  Satisfaction guaranteed, or we'll return your dirt!
-                </span>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
       </div>
-    </section>
+    </section >
   );
 };
