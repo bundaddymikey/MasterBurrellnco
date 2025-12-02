@@ -152,13 +152,13 @@ export const AboutUs: React.FC = () => {
 
             <div className="space-y-6 text-slate-300 text-lg leading-relaxed font-sans max-w-3xl mx-auto">
               <p>
-                At <span className="text-white font-semibold">Burrell & Co.</span>, we believe every car deserves showroom level care, inside and out. We specialize in high quality professional detailing that brings back that fresh off the lot feel.
+                Burrell & Co is a professional mobile detailing service that comes right to your home or workplace, giving you a level of convenience and quality that regular car washes just cant match. We know your time is valuable, so we bring our fully equipped mobile unit directly to you, whether you are relaxing at home or grinding at the office.
               </p>
               <p>
-                Our team is passionate about precision and treats every vehicle like it is our own. Customer satisfaction is not a goal for us, it is the standard we work by.
+                We specialize in careful hand washing and paint safe methods to keep your vehicles finish looking perfect. Unlike automated tunnels that can leave swirls and scratches, we use premium microfiber towels, pH neutral shampoos, and professional grade products to ensure a scratch free, showroom level result every time. From daily drivers to high end luxury vehicles, we treat every car with respect and make sure it looks its absolute best.
               </p>
               <p>
-                Whether it is a quick wash or a full interior restoration, we are here to deliver results that make you look twice.
+                Serving the entire Inland Empire, including Rancho Cucamonga, Fontana, Upland, and Ontario, we are dedicated to giving you a superior experience. We bring everything from the water to the power, so all you have to do is hand us the keys. Whether you need a quick maintenance wash or a full paint correction and ceramic coating, Burrell & Co is here to take care of your ride.
               </p>
 
               <div className="mt-8 mb-6 bg-black/40 rounded-xl border-l-4 border-brand-gold backdrop-blur-sm overflow-hidden transition-colors hover:bg-black/50 text-left">
