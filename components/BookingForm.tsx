@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { SERVICES } from '../constants';
 import { Button } from './Button';
-import { CheckCircle, Calendar as CalendarIcon, MapPin, Loader2 } from 'lucide-react';
+import { CheckCircle, Calendar as CalendarIcon, MapPin, Loader2, Clock } from 'lucide-react';
 
 import { VEHICLE_DATA } from './vehicleData';
 
@@ -193,7 +193,6 @@ Sent from Burrell & Co. Website
             value={formData.name}
             onChange={handleChange}
             className="w-full bg-black border border-gray-700 text-white text-base px-4 py-3 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all font-sans"
-            placeholder="John Doe"
           />
         </div>
 
@@ -207,7 +206,6 @@ Sent from Burrell & Co. Website
             value={formData.email}
             onChange={handleChange}
             className="w-full bg-black border border-gray-700 text-white text-base px-4 py-3 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all font-sans"
-            placeholder="john@example.com"
           />
         </div>
 
@@ -221,7 +219,6 @@ Sent from Burrell & Co. Website
             value={formData.phone}
             onChange={handleChange}
             className="w-full bg-black border border-gray-700 text-white text-base px-4 py-3 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all font-sans"
-            placeholder="(555) 123-4567"
           />
         </div>
 
@@ -337,26 +334,47 @@ Sent from Burrell & Co. Website
 
       <div className="mb-8 space-y-2">
         <label htmlFor="serviceId" className="block text-sm font-medium text-gray-400 uppercase tracking-wide font-mono">Select Service Package</label>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {SERVICES.map((service) => {
             // Calculate dynamic price based on vehicle type
             const dynamicPrice = formData.vehicleType === 'large'
               ? (service.priceLarge || service.price)
               : (service.priceSedan || service.price);
 
+            const isSelected = formData.serviceId === service.id;
+
             return (
               <div
                 key={service.id}
                 onClick={() => setFormData(prev => ({ ...prev, serviceId: service.id }))}
-                className={`cursor-pointer p-4 border rounded-lg transition-all ${formData.serviceId === service.id ? 'bg-brand-gold/10 border-brand-gold shadow-[0_0_10px_rgba(255,195,0,0.1)]' : 'bg-black border-gray-700 hover:border-gray-500'}`}
+                className={`cursor-pointer border rounded-lg transition-all overflow-hidden ${isSelected ? 'bg-brand-gold/10 border-brand-gold shadow-[0_0_10px_rgba(255,195,0,0.1)]' : 'bg-black border-gray-700 hover:border-gray-500'}`}
               >
-                <div className="flex justify-between items-center">
-                  <span className={`font-bold font-serif ${formData.serviceId === service.id ? 'text-brand-gold' : 'text-white'}`}>{service.title}</span>
+                <div className="p-4 flex justify-between items-center">
+                  <span className={`font-bold font-serif ${isSelected ? 'text-brand-gold' : 'text-white'}`}>{service.title}</span>
                   <div className="text-right">
                     <span className="block text-brand-gold font-mono font-bold">${dynamicPrice}</span>
                     <span className="text-gray-500 text-[10px] font-mono uppercase">{formData.vehicleType === 'large' ? 'SUV/Truck' : 'Sedan'}</span>
                   </div>
                 </div>
+
+                {/* Accordion Content */}
+                {isSelected && (
+                  <div className="px-4 pb-4 border-t border-white/5 pt-4">
+                    <p className="text-sm text-gray-300 mb-3 font-sans">{service.description}</p>
+                    <div className="space-y-1 mb-3">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-xs text-gray-400">
+                          <CheckCircle size={12} className="text-brand-gold mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-brand-gold font-mono">
+                      <Clock size={12} />
+                      <span>Est. Duration: {service.duration}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -395,7 +413,6 @@ Sent from Burrell & Co. Website
             value={formData.zipCode}
             onChange={handleChange}
             className="w-full bg-black border border-gray-700 text-white text-base px-4 py-3 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all font-sans"
-            placeholder="90210"
           />
         </div>
 
@@ -470,7 +487,6 @@ Sent from Burrell & Co. Website
                 }
               }}
               className="w-full bg-black border border-gray-700 text-white text-base px-4 py-3 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all font-sans disabled:opacity-50 disabled:cursor-not-allowed resize-none"
-              placeholder={formData.zipCode && formData.zipCode.length === 5 ? "Start typing your address..." : "Enter Zip Code first"}
               autoComplete="off"
               disabled={!formData.zipCode || formData.zipCode.length !== 5}
             />
