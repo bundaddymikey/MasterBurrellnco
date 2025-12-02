@@ -54,37 +54,37 @@ const PROJECTS: Project[] = [
     },
     {
         id: 'project-5',
-        coverImage: '/gallery/untitled folder/IMG_1359 2.heic.jpg',
+        coverImage: '/gallery/project-5/1.jpg',
         images: [
-            '/gallery/untitled folder/IMG_1359 2.heic.jpg'
+            '/gallery/project-5/1.jpg'
         ]
     },
     {
         id: 'project-6',
-        coverImage: '/gallery/untitled folder 2/IMG_1363.heic.jpg',
+        coverImage: '/gallery/project-6/1.jpg',
         images: [
-            '/gallery/untitled folder 2/IMG_1363.heic.jpg',
-            '/gallery/untitled folder 2/IMG_1372.heic.jpg'
+            '/gallery/project-6/1.jpg',
+            '/gallery/project-6/2.jpg'
         ]
     },
     {
         id: 'project-7',
-        coverImage: '/gallery/untitled folder 3/IMG_3658.heic.jpg',
+        coverImage: '/gallery/project-7/1.jpg',
         images: [
-            '/gallery/untitled folder 3/IMG_3658.heic.jpg',
-            '/gallery/untitled folder 3/IMG_3659.heic.jpg',
-            '/gallery/untitled folder 3/IMG_3660.heic.jpg',
-            '/gallery/untitled folder 3/IMG_3661.heic.jpg',
-            '/gallery/untitled folder 3/IMG_4090.heic.jpg'
+            '/gallery/project-7/1.jpg',
+            '/gallery/project-7/2.jpg',
+            '/gallery/project-7/3.jpg',
+            '/gallery/project-7/4.jpg',
+            '/gallery/project-7/5.jpg'
         ]
     },
     {
         id: 'project-8',
-        coverImage: '/gallery/untitled folder 4/IMG_3720.heic.jpg',
+        coverImage: '/gallery/project-8/1.jpg',
         images: [
-            '/gallery/untitled folder 4/IMG_3720.heic.jpg',
-            '/gallery/untitled folder 4/IMG_3728.heic.jpg',
-            '/gallery/untitled folder 4/IMG_3729.heic.jpg'
+            '/gallery/project-8/1.jpg',
+            '/gallery/project-8/2.jpg',
+            '/gallery/project-8/3.jpg'
         ]
     }
 ];
