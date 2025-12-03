@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -15,6 +15,14 @@ import { Subscriptions } from './components/Subscriptions';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SEO } from './components/SEO';
 import { IntroSection, TrustSection, ProcessSection, CTASection } from './components/HomeContent';
+import { AuthProvider } from './contexts/AuthContext';
+import { LoginForm } from './components/auth/LoginForm';
+import { SignupForm } from './components/auth/SignupForm';
+import { ProtectedRoute } from './components/auth/ProtectedRoute';
+import { DashboardLayout } from './pages/dashboard/DashboardLayout';
+import { Overview } from './pages/dashboard/Overview';
+import { Rewards } from './pages/dashboard/Rewards';
+import { Appointments, History, Settings } from './pages/dashboard/Placeholders';
 
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -72,56 +80,60 @@ const BookingPage: React.FC = () => {
   );
 };
 
-export default function App() {
+function AppContent() {
   const location = useLocation();
 
   return (
+    <div className="min-h-screen bg-slate-950">
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+          <Route path="/subscriptions" element={<PageWrapper><Subscriptions /></PageWrapper>} />
+          <Route path="/gallery" element={
+            <PageWrapper>
+              <SEO
+                title="Gallery | Burrell & Co. Mobile Detailing"
+                description="View our portfolio of detailed vehicles. From luxury cars to daily drivers, see the Burrell & Co. difference."
+              />
+              <Gallery />
+            </PageWrapper>
+          } />
+          <Route path="/services/:id" element={<ServiceDetail />} />
+
+          {/* Auth Routes */}
+          <Route path="/login" element={<PageWrapper><LoginForm /></PageWrapper>} />
+          <Route path="/signup" element={<PageWrapper><SignupForm /></PageWrapper>} />
+
+          {/* Dashboard Routes */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }>
+            <Route index element={<Overview />} />
+            <Route path="appointments" element={<Appointments />} />
+            <Route path="history" element={<History />} />
+            <Route path="rewards" element={<Rewards />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
+      <ChatAssistant />
+      {/* Only show footer on non-dashboard pages */}
+      {!location.pathname.includes('/dashboard') && <Footer />}
+    </div>
+  );
+}
+
+export default function App() {
+  return (
     <HashRouter>
       <AuthProvider>
-        <div className="min-h-screen bg-slate-950">
-          <Navbar />
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/booking" element={<BookingPage />} />
-              <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-              <Route path="/subscriptions" element={<PageWrapper><Subscriptions /></PageWrapper>} />
-              <Route path="/gallery" element={
-                <PageWrapper>
-                  <SEO
-                    title="Gallery | Burrell & Co. Mobile Detailing"
-                    description="View our portfolio of detailed vehicles. From luxury cars to daily drivers, see the Burrell & Co. difference."
-                  />
-                  <Gallery />
-                </PageWrapper>
-              } />
-              <Route path="/services/:id" element={<ServiceDetail />} />
-
-              {/* Auth Routes */}
-              <Route path="/login" element={<PageWrapper><LoginForm /></PageWrapper>} />
-              <Route path="/signup" element={<PageWrapper><SignupForm /></PageWrapper>} />
-
-              {/* Dashboard Routes */}
-              <Route path="/dashboard" element={
-                <ProtectedRoute>
-                  <DashboardLayout />
-                </ProtectedRoute>
-              }>
-                <Route index element={<Overview />} />
-                <Route path="appointments" element={<Appointments />} />
-                <Route path="history" element={<History />} />
-                <Route path="rewards" element={<Rewards />} />
-                <Route path="settings" element={<Settings />} />
-              </Route>
-            </Routes>
-        </div>
-        );
-};
-
-        export default function App() {
-  return (
-        <HashRouter>
-          <AppContent />
-        </HashRouter>
-        );
+        <AppContent />
+      </AuthProvider>
+    </HashRouter>
+  );
 }
