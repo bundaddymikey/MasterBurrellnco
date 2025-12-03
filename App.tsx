@@ -72,16 +72,16 @@ const BookingPage: React.FC = () => {
   );
 };
 
-const AppContent: React.FC = () => {
+export default function App() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-brand-darker text-white">
-      <Navbar />
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <div key={location.pathname}>
-            <Routes location={location}>
+    <HashRouter>
+      <AuthProvider>
+        <div className="min-h-screen bg-slate-950">
+          <Navbar />
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
               <Route path="/" element={<HomePage />} />
               <Route path="/booking" element={<BookingPage />} />
               <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
@@ -89,28 +89,39 @@ const AppContent: React.FC = () => {
               <Route path="/gallery" element={
                 <PageWrapper>
                   <SEO
-                    title="Detailing Gallery | Burrell & Co"
-                    description="View our portfolio of detailed vehicles. From luxury cars to daily drivers, see the Burrell & Co difference."
-                    canonical="https://burrellnco.com/gallery"
+                    title="Gallery | Burrell & Co. Mobile Detailing"
+                    description="View our portfolio of detailed vehicles. From luxury cars to daily drivers, see the Burrell & Co. difference."
                   />
                   <Gallery />
                 </PageWrapper>
               } />
-              <Route path="/services/:id" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+              <Route path="/services/:id" element={<ServiceDetail />} />
+
+              {/* Auth Routes */}
+              <Route path="/login" element={<PageWrapper><LoginForm /></PageWrapper>} />
+              <Route path="/signup" element={<PageWrapper><SignupForm /></PageWrapper>} />
+
+              {/* Dashboard Routes */}
+              <Route path="/dashboard" element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }>
+                <Route index element={<Overview />} />
+                <Route path="appointments" element={<Appointments />} />
+                <Route path="history" element={<History />} />
+                <Route path="rewards" element={<Rewards />} />
+                <Route path="settings" element={<Settings />} />
+              </Route>
             </Routes>
-          </div>
-        </AnimatePresence>
-      </main>
-      <Footer />
-      <ChatAssistant />
-    </div>
-  );
+        </div>
+        );
 };
 
-export default function App() {
+        export default function App() {
   return (
-    <HashRouter>
-      <AppContent />
-    </HashRouter>
-  );
+        <HashRouter>
+          <AppContent />
+        </HashRouter>
+        );
 }
