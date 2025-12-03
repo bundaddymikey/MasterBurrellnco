@@ -11,9 +11,9 @@ export const Hero: React.FC = () => {
   const backgroundScale = useTransform(scrollY, [0, 600], [1, 1.1]);
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-[100dvh] flex items-center">
+      {/* Background Image with Overlay - Wrapped to prevent overflow but allow scroll */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -32,17 +32,17 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-20 flex flex-col justify-center items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 lg:px-16 py-20 md:py-24 flex flex-col justify-center items-center w-full">
 
         {/* Main Centered Content */}
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-5xl mx-auto w-full">
 
           {/* Location Badge */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-gold/10 border border-brand-gold/20 rounded-full text-brand-gold text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-sm font-mono"
+            className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 bg-brand-gold/10 border border-brand-gold/20 rounded-full text-brand-gold text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6 md:mb-8 backdrop-blur-sm font-mono"
           >
             <MapPin size={12} />
             Serving the Greater Rancho Cucamonga Area
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-wide mb-4 leading-tight uppercase font-sans"
+              className="text-3xl md:text-6xl lg:text-7xl font-black text-white tracking-wide mb-2 md:mb-4 leading-tight uppercase font-sans"
             >
               SHOWROOM LEVEL DETAILING.
             </motion.h1>
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-              className="block text-brand-gold font-serif italic font-bold tracking-[1px] text-2xl md:text-4xl mt-2 uppercase"
+              className="block text-brand-gold font-serif italic font-bold tracking-[1px] text-xl md:text-4xl mt-1 md:mt-2 uppercase"
             >
               EVERY TIME.
             </motion.span>
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="h-1 w-20 bg-brand-gold mx-auto mt-6 mb-10"
+            className="h-1 w-16 md:w-20 bg-brand-gold mx-auto mt-4 md:mt-6 mb-8 md:mb-10"
           />
 
           {/* Buttons */}
@@ -85,12 +85,12 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto px-4 sm:px-0"
           >
             <Button
               to="/booking"
               variant="primary"
-              className="hover:scale-105 min-w-[200px]"
+              className="hover:scale-105 w-full sm:w-auto min-w-[200px]"
             >
               Schedule Service
             </Button>
@@ -102,9 +102,9 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="mt-16 max-w-2xl w-full px-4"
+            className="mt-8 md:mt-16 max-w-2xl w-full px-0 md:px-4"
           >
-            <div className="w-full border-2 border-dashed border-brand-gold/30 rounded-lg relative py-4 px-8 flex items-center justify-center backdrop-blur-md bg-brand-darker/40 overflow-hidden group hover:border-brand-gold/60 transition-colors duration-500">
+            <div className="w-full border-2 border-dashed border-brand-gold/30 rounded-lg relative py-3 md:py-4 px-4 md:px-8 flex items-center justify-center backdrop-blur-md bg-brand-darker/40 overflow-hidden group hover:border-brand-gold/60 transition-colors duration-500">
 
               <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
               <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-gold opacity-30 group-hover:opacity-100 transition-opacity"></div>
@@ -121,16 +121,16 @@ export const Hero: React.FC = () => {
                   }}
                   className="inline-block"
                 >
-                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  <span className="text-lg md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-4 md:mx-8">
                     Satisfaction guaranteed, or we'll return your dirt!
                   </span>
-                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  <span className="text-lg md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-4 md:mx-8">
                     Satisfaction guaranteed, or we'll return your dirt!
                   </span>
-                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  <span className="text-lg md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-4 md:mx-8">
                     Satisfaction guaranteed, or we'll return your dirt!
                   </span>
-                  <span className="text-xl md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-8">
+                  <span className="text-lg md:text-2xl text-brand-gold font-serif italic font-bold tracking-wide mx-4 md:mx-8">
                     Satisfaction guaranteed, or we'll return your dirt!
                   </span>
                 </motion.div>
