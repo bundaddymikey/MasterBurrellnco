@@ -90,10 +90,15 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink to="/">Home</NavLink>
+            <Link to="/" onClick={() => window.scrollTo(0, 0)} className="relative group py-1">
+              <span className="text-sm font-medium text-slate-300 group-hover:text-brand-gold transition-colors uppercase tracking-widest relative z-10 font-mono">
+                Home
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            </Link>
             <NavLink to="/#services">Services</NavLink>
             <NavLink to="/gallery">Gallery</NavLink>
-            <NavLink to="/#testimonials">Reviews</NavLink>
+            <NavLink to="/subscriptions">Subscriptions</NavLink>
             <NavLink to="/contact">Contact</NavLink>
             <Link
               to="/booking"
@@ -127,7 +132,7 @@ export const Navbar: React.FC = () => {
             className="md:hidden fixed inset-0 bg-brand-darker z-40 flex flex-col justify-end pb-32 items-center space-y-8"
           >
             <motion.div variants={linkVariants}>
-              <Link to="/" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Home</Link>
+              <Link to="/" onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Home</Link>
             </motion.div>
             <motion.div variants={linkVariants}>
               <Link to="/#services" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Services</Link>
@@ -136,7 +141,7 @@ export const Navbar: React.FC = () => {
               <Link to="/gallery" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Gallery</Link>
             </motion.div>
             <motion.div variants={linkVariants}>
-              <Link to="/#testimonials" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Testimonials</Link>
+              <Link to="/subscriptions" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Subscriptions</Link>
             </motion.div>
             <motion.div variants={linkVariants}>
               <Link to="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Contact</Link>
