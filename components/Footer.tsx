@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://yelp.com"
+                href="https://www.yelp.com/biz/burrellnco-etiwanda?osq=Burrellnco"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-brand-gold transition-all duration-300 hover:scale-110"
