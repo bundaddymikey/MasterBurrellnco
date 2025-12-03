@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/burrellnco/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-brand-gold transition-all duration-300 hover:scale-110"
