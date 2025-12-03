@@ -5,7 +5,7 @@ import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { AboutUs } from './components/AboutUs';
 import { Testimonials } from './components/Testimonials';
-import { BookingForm } from './components/BookingForm';
+import { BookingWizard } from './components/booking/BookingWizard';
 import { ChatAssistant } from './components/ChatAssistant';
 import { Footer } from './components/Footer';
 import { Gallery } from './components/Gallery';
@@ -74,7 +74,7 @@ const BookingPage: React.FC = () => {
             Select your package and preferred time. We come to your home or office fully equipped.
           </p>
         </div>
-        <BookingForm />
+        <BookingWizard />
       </div>
     </PageWrapper>
   );
