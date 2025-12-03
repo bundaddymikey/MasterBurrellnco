@@ -14,6 +14,13 @@ export const ChatAssistant: React.FC = () => {
       timestamp: new Date()
     }
   ]);
+
+  const SUGGESTED_QUESTIONS = [
+    "Do you need access to water or power?",
+    "Can you fix scratches in my paint?",
+    "Do you wash Teslas/EVs?",
+    "What happens if it rains after?",
+  ];
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -43,14 +50,14 @@ export const ChatAssistant: React.FC = () => {
 
     try {
       const responseText = await sendMessageToGemini(userMessage.text);
-      
+
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'model',
         text: responseText,
         timestamp: new Date()
       };
-      
+
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error(error);
@@ -67,7 +74,7 @@ export const ChatAssistant: React.FC = () => {
   };
 
   const QuickChip = ({ label, query }: { label: string, query: string }) => (
-    <button 
+    <button
       onClick={() => handleSend(query)}
       className="whitespace-nowrap px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-brand-gold hover:bg-brand-gold hover:text-black transition-colors"
     >
@@ -79,7 +86,7 @@ export const ChatAssistant: React.FC = () => {
     <>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -99,7 +106,7 @@ export const ChatAssistant: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="text-gray-400 hover:text-white transition-colors"
               >
@@ -110,16 +117,15 @@ export const ChatAssistant: React.FC = () => {
             {/* Messages */}
             <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-brand-dark/50 scrollbar-thin">
               {messages.map((msg) => (
-                <div 
-                  key={msg.id} 
+                <div
+                  key={msg.id}
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div 
-                    className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
-                      msg.role === 'user' 
-                        ? 'bg-brand-gold text-black font-medium rounded-br-none' 
+                  <div
+                    className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                        ? 'bg-brand-gold text-black font-medium rounded-br-none'
                         : 'bg-black text-gray-200 border border-white/10 rounded-bl-none'
-                    }`}
+                      }`}
                   >
                     {msg.text}
                   </div>
@@ -137,10 +143,10 @@ export const ChatAssistant: React.FC = () => {
 
             {/* Quick Suggestions */}
             <div className="px-4 py-2 bg-black/50 overflow-x-auto flex gap-2 scrollbar-none border-t border-white/5">
-               <QuickChip label="Price for SUV?" query="How much for a full interior detail on an SUV?" />
-               <QuickChip label="I have a Tesla" query="What is the best package for my Tesla Model Y?" />
-               <QuickChip label="Engine cleaning?" query="Do you clean engine bays?" />
-               <QuickChip label="Maintenance?" query="Tell me about maintenance washes." />
+              <QuickChip label="Price for SUV?" query="How much for a full interior detail on an SUV?" />
+              <QuickChip label="I have a Tesla" query="What is the best package for my Tesla Model Y?" />
+              <QuickChip label="Engine cleaning?" query="Do you clean engine bays?" />
+              <QuickChip label="Maintenance?" query="Tell me about maintenance washes." />
             </div>
 
             {/* Input */}
@@ -154,7 +160,7 @@ export const ChatAssistant: React.FC = () => {
                   placeholder="Type a message..."
                   className="flex-grow bg-brand-dark border border-gray-700 text-white text-sm rounded-full px-4 py-2 focus:outline-none focus:border-brand-gold"
                 />
-                <button 
+                <button
                   onClick={() => handleSend()}
                   disabled={isLoading || !input.trim()}
                   className="bg-brand-gold text-black p-2 rounded-full hover:bg-yellow-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
