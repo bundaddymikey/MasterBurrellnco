@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
   const backgroundScale = useTransform(scrollY, [0, 600], [1, 1.1]);
 
   return (
-    <section className="relative h-[100dvh] min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-20 h-full flex flex-col justify-center items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-20 flex flex-col justify-center items-center">
 
         {/* Main Centered Content */}
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
