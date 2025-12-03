@@ -32,10 +32,10 @@ const PROJECTS: Project[] = [
     },
     {
         id: 'lexus-is',
-        coverImage: '/gallery/lexus-is/2.png',
+        coverImage: '/gallery/lexus-is/1.png',
         images: [
-            '/gallery/lexus-is/2.png',
             '/gallery/lexus-is/1.png',
+            '/gallery/lexus-is/2.png',
             '/gallery/lexus-is/3.png',
             '/gallery/lexus-is/4.jpg',
             '/gallery/lexus-is/5.png'
