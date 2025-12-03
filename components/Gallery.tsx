@@ -145,7 +145,7 @@ export const Gallery: React.FC = () => {
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10" />
                                 <img
                                     src={project.coverImage}
-                                    alt="Gallery Project"
+                                    alt={`${project.id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} Project`}
                                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
