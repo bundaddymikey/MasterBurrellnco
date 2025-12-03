@@ -18,7 +18,8 @@ export const SERVICES: ServicePackage[] = [
       'Streak-free window cleaning',
       'Light interior wipe-down'
     ],
-    image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=800&auto=format&fit=crop',
+    processDescription: "Using pH-neutral products and meticulous two-bucket methods, we focus on safe surface decontamination, tire/rim renewal, and light interior conditioning to maintain your vehicle's weekly shine."
   },
   {
     id: 'full-interior',
@@ -59,7 +60,8 @@ export const SERVICES: ServicePackage[] = [
       '3-month paint sealant',
       'Ideal prep before waxing or ceramic coating'
     ],
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop',
+    processDescription: "This process is focused on deep decontamination and protection. We execute a multi-step cleanse, including fallout removal and clay barring, to perfect the finish before locking in a 3-month protective sealant."
   },
   {
     id: 'engine-bay',
@@ -76,7 +78,8 @@ export const SERVICES: ServicePackage[] = [
       'Safe degreasing and dressing',
       'Protects plastic and rubber components'
     ],
-    image: '/gallery/ford-ranger/4.png'
+    image: '/gallery/ford-ranger/4.png',
+    processDescription: "We execute a water-safe degreasing and cleaning process, paying close attention to sensitive components, followed by a protective dressing for all plastic and rubber surfaces."
   }
 ];
 

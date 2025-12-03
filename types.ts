@@ -18,6 +18,7 @@ export interface ServicePackage {
   features: string[];
   image: string;
   popular?: boolean;
+  processDescription?: string;
 }
 
 export interface ChatMessage {

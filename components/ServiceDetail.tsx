@@ -113,7 +113,9 @@ export const ServiceDetail: React.FC = () => {
                                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold text-black flex items-center justify-center font-bold font-mono">2</div>
                                     <div>
                                         <h3 className="text-white font-bold mb-2">Execution</h3>
-                                        <p className="text-slate-400 text-sm">Using our premium tools and products, we meticulously perform the service, paying attention to every detail.</p>
+                                        <p className="text-slate-400 text-sm">
+                                            {service.processDescription || "Using our premium tools and products, we meticulously perform the service, paying attention to every detail."}
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
