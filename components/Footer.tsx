@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-slate-400 font-sans">
               {SERVICES.map((service) => (
                 <li key={service.id}>
-                  <Link to="/#services" className="hover:text-brand-gold transition-colors">{service.title}</Link>
+                  <Link to={`/services/${service.id}`} className="hover:text-brand-gold transition-colors">{service.title}</Link>
                 </li>
               ))}
             </ul>
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-white font-bold mb-6 font-serif">Contact</h4>
             <ul className="space-y-3 text-sm text-slate-400 font-sans">
               <li>
-                <a href="mailto:Shawn@Burrellnco.com" className="hover:text-brand-gold transition-colors">
+                <a href="mailto:Shawn@Burrellnco.com?subject=Detailing%20Inquiry" className="hover:text-brand-gold transition-colors">
                   Shawn@Burrellnco.com
                 </a>
               </li>

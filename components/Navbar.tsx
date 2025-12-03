@@ -12,20 +12,6 @@ export const Navbar: React.FC = () => {
   const lastYRef = useRef(0);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const diff = latest - lastYRef.current;
-    const isScrollingDown = diff > 0;
-    const isPastHeader = latest > 100;
-
-    // Hide navbar if scrolling down and past header, show if scrolling up
-    // Only apply hiding logic if menu is NOT open
-    if (!isOpen) {
-      if (isScrollingDown && isPastHeader) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-    }
-
     setScrolled(latest > 20);
     lastYRef.current = latest;
   });
@@ -108,6 +94,7 @@ export const Navbar: React.FC = () => {
             <NavLink to="/#services">Services</NavLink>
             <NavLink to="/gallery">Gallery</NavLink>
             <NavLink to="/#testimonials">Reviews</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
             <Link
               to="/booking"
               className="px-6 py-2.5 text-sm font-bold bg-brand-gold text-brand-darker rounded-full uppercase tracking-wider hover:bg-yellow-400 transition-all hover:shadow-[0_0_20px_rgba(255,195,0,0.3)] active:scale-95 font-sans"
@@ -150,6 +137,9 @@ export const Navbar: React.FC = () => {
             </motion.div>
             <motion.div variants={linkVariants}>
               <Link to="/#testimonials" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Testimonials</Link>
+            </motion.div>
+            <motion.div variants={linkVariants}>
+              <Link to="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Contact</Link>
             </motion.div>
             <motion.div variants={linkVariants}>
               <Link to="/booking" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-bold text-brand-gold hover:text-white transition-colors">Book Appointment</Link>

@@ -10,6 +10,7 @@ import { ChatAssistant } from './components/ChatAssistant';
 import { Footer } from './components/Footer';
 import { Gallery } from './components/Gallery';
 import { ServiceDetail } from './components/ServiceDetail';
+import { Contact } from './components/Contact';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SEO } from './components/SEO';
 import { IntroSection, TrustSection, ProcessSection, CTASection } from './components/HomeContent';
@@ -82,6 +83,7 @@ const AppContent: React.FC = () => {
             <Routes location={location}>
               <Route path="/" element={<HomePage />} />
               <Route path="/booking" element={<BookingPage />} />
+              <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
               <Route path="/gallery" element={
                 <PageWrapper>
                   <SEO
