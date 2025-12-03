@@ -11,7 +11,12 @@ export const Footer: React.FC = () => {
 
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="block mb-6 group w-fit">
-              <img src="/logo.png" alt="Burrell & Co. Logo" className="h-16 w-auto object-contain" />
+              <div className="flex flex-col">
+                <span className="font-display font-bold text-2xl text-white tracking-tight leading-none">
+                  Burrell <span className="text-brand-gold font-serif italic">&</span> Co.
+                </span>
+                <span className="text-[0.6rem] uppercase tracking-[0.2em] text-slate-400 font-sans pl-1">Mobile Detailing</span>
+              </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
               Elevating car care to an art form. We bring the detail shop to your driveway with premium products and unmatched expertise.
@@ -27,22 +32,21 @@ export const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://yelp.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-brand-gold transition-all duration-300 hover:scale-110"
-                aria-label="Facebook"
+                aria-label="Yelp"
               >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-brand-gold transition-all duration-300 hover:scale-110"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12.0001 0.600098C5.7001 0.600098 0.600098 5.7001 0.600098 12.0001C0.600098 18.3001 5.7001 23.4001 12.0001 23.4001C18.3001 23.4001 23.4001 18.3001 23.4001 12.0001C23.4001 5.7001 18.3001 0.600098 12.0001 0.600098ZM16.6801 17.5201C16.5601 17.8801 16.2001 18.2401 15.7201 18.2401C15.2401 18.2401 14.8801 18.0001 14.6401 17.5201L13.2001 14.5201L11.7601 17.5201C11.5201 18.0001 11.1601 18.2401 10.6801 18.2401C10.2001 18.2401 9.8401 17.8801 9.7201 17.5201L8.7601 12.9601L4.2001 12.0001C3.8401 11.8801 3.4801 11.5201 3.4801 11.0401C3.4801 10.5601 3.7201 10.2001 4.2001 9.9601L8.7601 9.0001L9.7201 4.4401C9.8401 4.0801 10.2001 3.7201 10.6801 3.7201C11.1601 3.7201 11.5201 3.9601 11.7601 4.4401L13.2001 7.4401L14.6401 4.4401C14.8801 3.9601 15.2401 3.7201 15.7201 3.7201C16.2001 3.7201 16.5601 4.0801 16.6801 4.4401L17.6401 9.0001L22.2001 9.9601C22.5601 10.0801 22.9201 10.4401 22.9201 10.9201C22.9201 11.4001 22.6801 11.7601 22.2001 12.0001L17.6401 12.9601L16.6801 17.5201Z" />
+                </svg>
               </a>
             </div>
           </div>
