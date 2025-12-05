@@ -78,7 +78,7 @@ export const SERVICES: ServicePackage[] = [
       'Protective Matte Finish',
       'Hood Underside Detail'
     ],
-    image: '/gallery/ford-ranger/4.png',
+    image: '/images/services/service-engine.jpg',
     processDescription: "We execute a water-safe degreasing and cleaning process, paying close attention to sensitive components, followed by a protective dressing for all plastic and rubber surfaces."
   }
 ];
