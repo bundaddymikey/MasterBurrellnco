@@ -160,9 +160,9 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
                                 type="button"
                                 onClick={handleUseCurrentLocation}
                                 disabled={isLocating}
-                                className="text-[10px] text-brand-gold flex items-center gap-1 hover:text-white transition-colors disabled:opacity-50 uppercase tracking-wider font-bold"
+                                className="text-xs text-brand-gold bg-brand-gold/10 hover:bg-brand-gold/20 border border-brand-gold/20 px-3 py-1 rounded-full flex items-center gap-2 transition-all disabled:opacity-50 uppercase tracking-wider font-bold"
                             >
-                                {isLocating ? <Loader2 size={10} className="animate-spin" /> : <MapPin size={10} />}
+                                {isLocating ? <Loader2 size={12} className="animate-spin" /> : <MapPin size={12} />}
                                 {isLocating ? 'Locating...' : 'Use Current Location'}
                             </button>
                         </div>
