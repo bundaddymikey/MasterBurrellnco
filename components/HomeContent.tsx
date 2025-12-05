@@ -5,17 +5,17 @@ import { CheckCircle, Clock, Shield, Star } from 'lucide-react';
 export const IntroSection: React.FC = () => (
     <section className="py-20 bg-brand-darker text-slate-200">
         <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16">
-            <div className="space-y-6 text-center md:text-left">
+            <div className="space-y-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
                     Premium Mobile Car Wash Brought To Your Driveway
                 </h2>
-                <p className="text-lg leading-relaxed text-slate-400 max-w-3xl">
+                <p className="text-lg leading-relaxed text-slate-400 max-w-3xl mx-auto">
                     Burrell & Co is a professional mobile detailing service that comes directly to your home or workplace, offering a level of convenience and quality that traditional car washes simply cannot match. We understand that your time is valuable, which is why we bring our fully equipped mobile unit to you, whether you are at home relaxing or busy at the office.
                 </p>
-                <p className="text-lg leading-relaxed text-slate-400 max-w-3xl">
+                <p className="text-lg leading-relaxed text-slate-400 max-w-3xl mx-auto">
                     Our team specializes in careful hand washing and paint-safe methods designed to preserve your vehicle's finish. Unlike automated tunnels that can leave swirls and scratches, we use premium microfiber towels, pH-neutral shampoos, and professional-grade products to ensure a scratch-free, showroom-level result every time. From daily drivers to high-end luxury vehicles, we treat every car with the respect it deserves, ensuring it looks its absolute best.
                 </p>
-                <p className="text-lg leading-relaxed text-slate-400 max-w-3xl">
+                <p className="text-lg leading-relaxed text-slate-400 max-w-3xl mx-auto">
                     Serving Southern California, we are dedicated to providing a superior customer experience. We handle everything from the water to the power, so all you have to do is hand us the keys. Whether you need a quick maintenance wash or a full paint correction and ceramic coating, Burrell & Co is your trusted partner for automotive care.
                 </p>
             </div>
