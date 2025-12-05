@@ -3,80 +3,79 @@ import { ServicePackage, ServiceType, Testimonial } from './types';
 export const SERVICES: ServicePackage[] = [
   {
     id: 'maintenance-wash',
-    title: 'Maintenance Wash',
+    title: 'The Monthly Reset',
     type: ServiceType.MAINTENANCE,
     price: 65,
     priceSedan: 65,
     priceLarge: 95,
-    pricingDetails: "Sedans: $65+ | SUVs/Trucks: $95+",
+    pricingDetails: null, // Dynamic pricing handled by component
     duration: '1 - 1.5 Hours',
-    description: 'Ideal for regular upkeep between full details or prepping for special occasions.',
+    description: 'The essential detox for your daily driver. We strip the grime without touching the clear coat.',
     features: [
-      'Exterior hand wash',
-      'Full interior vacuum (including trunk)',
-      'Tire and rim scrub with dressing',
-      'Streak-free window cleaning',
-      'Light interior wipe-down'
+      'Scratchless Hand Wash',
+      'Deep Wheel Decontamination',
+      'Crystal Clear Glass',
+      'Complete Carpet Extraction',
+      'Dash and Console Wipe Down'
     ],
     image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=800&auto=format&fit=crop',
     processDescription: "Using pH-neutral products and meticulous two-bucket methods, we focus on safe surface decontamination, tire/rim renewal, and light interior conditioning to maintain your vehicle's weekly shine."
   },
   {
     id: 'full-interior',
-    title: 'Full Interior Detail',
+    title: 'The Interior Sanctuary',
     type: ServiceType.INTERIOR,
     price: 180,
     priceSedan: 180,
     priceLarge: 200,
-    pricingDetails: "Sedan: $180+ | SUV/Truck: $200+",
+    pricingDetails: null,
     duration: '2.5 - 3.5 Hours',
-    description: 'For a complete refresh inside your vehicle.',
+    description: 'You spend your life inside this car. We reset it to factory fresh condition using steam and extraction.',
     features: [
-      'Full vacuum including trunk',
-      'Deep clean of dashboard, vents, and panels',
-      'Carpet & seat shampoo',
-      'Leather or vinyl conditioning',
-      'Steam sanitization',
-      'Streak-free window cleaning'
+      'Deep Steam Sterilization',
+      'Upholstery Extraction and Shampoo',
+      'Leather Conditioning Treatment',
+      'Vent and Crevice Purge',
+      'Trunk and Cargo Refresh'
     ],
     image: '/gallery/mercedes-gle/2.png',
     popular: true
   },
   {
     id: 'full-exterior',
-    title: 'Full Exterior Detail',
+    title: 'Exterior Resurrection',
     type: ServiceType.EXTERIOR,
     price: 250,
     priceSedan: 250,
     priceLarge: 300,
-    pricingDetails: "Sedans: $250+ | SUVs/Trucks: $300+",
+    pricingDetails: null,
     duration: '3 - 4 Hours',
-    description: 'Deep cleaning and decontamination for a glass-like finish.',
+    description: 'We do not cover up defects. We remove them. This is the deep clean your paint is begging for.',
     features: [
-      'Premium hand wash',
-      'Iron fallout & clay bar treatment',
-      'Wheel/tire cleaning & dressing',
-      'Bug & tar removal',
-      '3-month paint sealant',
-      'Ideal prep before waxing or ceramic coating'
+      'Chemical Paint Decontamination',
+      'Clay Bar Treatment',
+      'Iron Fallout Removal',
+      'Bug and Tar Elimination',
+      '3 Month Ceramic Sealant'
     ],
     image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop',
     processDescription: "This process is focused on deep decontamination and protection. We execute a multi-step cleanse, including fallout removal and clay barring, to perfect the finish before locking in a 3-month protective sealant."
   },
   {
     id: 'engine-bay',
-    title: 'Engine Bay Cleaning',
+    title: 'Engine Bay Restoration',
     type: ServiceType.ENGINE,
     price: 125,
     priceSedan: 125,
     priceLarge: 125,
-    pricingDetails: "$125+",
+    pricingDetails: null,
     duration: '45 Mins',
-    description: 'Detailed engine compartment cleaning.',
+    description: 'A dirty engine runs hot and hides leaks. We degrease, clean, and dress the heart of your vehicle.',
     features: [
-      'Detailed engine compartment cleaning',
-      'Safe degreasing and dressing',
-      'Protects plastic and rubber components'
+      'Oil and Grime Elimination',
+      'Safe Pressure Rinse',
+      'Plastics and Hoses Dressed',
+      'Protective Matte Finish'
     ],
     image: '/gallery/ford-ranger/4.png',
     processDescription: "We execute a water-safe degreasing and cleaning process, paying close attention to sensitive components, followed by a protective dressing for all plastic and rubber surfaces."
