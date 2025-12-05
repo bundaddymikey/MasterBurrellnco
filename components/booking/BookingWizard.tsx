@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { StepVehicle } from './StepVehicle';
 import { StepService } from './StepService';
+import { StepAddons } from './StepAddons';
 import { StepDateTime } from './StepDateTime';
 import { StepReview } from './StepReview';
 
@@ -11,13 +12,14 @@ export const BookingWizard: React.FC = () => {
     const [bookingData, setBookingData] = useState({
         vehicleType: null as 'sedan' | 'suv' | 'truck' | null,
         serviceId: null as string | null,
+        addonIds: [] as string[],
         date: '',
         time: '',
         contact: null as any
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const nextStep = () => setStep(s => Math.min(s + 1, 4));
+    const nextStep = () => setStep(s => Math.min(s + 1, 5));
     const prevStep = () => setStep(s => Math.max(s - 1, 1));
 
     const handleFinalSubmit = async (contactData: any) => {
@@ -50,7 +52,7 @@ export const BookingWizard: React.FC = () => {
             {/* Progress Bar */}
             <div className="mb-12">
                 <div className="flex justify-between mb-2">
-                    {['Vehicle', 'Service', 'Time', 'Review'].map((label, i) => (
+                    {['Vehicle', 'Package', 'Add-ons', 'Time', 'Review'].map((label, i) => (
                         <span
                             key={i}
                             className={`text-sm font-mono uppercase tracking-wider ${step > i ? 'text-brand-gold' : step === i + 1 ? 'text-white' : 'text-slate-600'
@@ -64,7 +66,7 @@ export const BookingWizard: React.FC = () => {
                     <motion.div
                         className="h-full bg-brand-gold"
                         initial={{ width: 0 }}
-                        animate={{ width: `${(step / 4) * 100}%` }}
+                        animate={{ width: `${(step / 5) * 100}%` }}
                     />
                 </div>
             </div>
@@ -98,6 +100,19 @@ export const BookingWizard: React.FC = () => {
                             />
                         )}
                         {step === 3 && (
+                            <StepAddons
+                                selectedAddons={bookingData.addonIds}
+                                onToggleAddon={(id) => {
+                                    setBookingData(prev => {
+                                        const newAddons = prev.addonIds.includes(id)
+                                            ? prev.addonIds.filter(a => a !== id)
+                                            : [...prev.addonIds, id];
+                                        return { ...prev, addonIds: newAddons };
+                                    });
+                                }}
+                            />
+                        )}
+                        {step === 4 && (
                             <StepDateTime
                                 date={bookingData.date}
                                 time={bookingData.time}
@@ -108,7 +123,7 @@ export const BookingWizard: React.FC = () => {
                                 }}
                             />
                         )}
-                        {step === 4 && (
+                        {step === 5 && (
                             <StepReview
                                 data={bookingData}
                                 onSubmit={handleFinalSubmit}
@@ -129,17 +144,17 @@ export const BookingWizard: React.FC = () => {
                     <ChevronLeft size={20} /> Back
                 </button>
 
-                {step < 4 && (
+                {step < 5 && (
                     <button
                         onClick={nextStep}
                         disabled={
                             (step === 1 && !bookingData.vehicleType) ||
                             (step === 2 && !bookingData.serviceId) ||
-                            (step === 3 && (!bookingData.date || !bookingData.time))
+                            (step === 4 && (!bookingData.date || !bookingData.time))
                         }
                         className="flex items-center gap-2 bg-white/10 text-white px-6 py-3 rounded-lg hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
-                        Next <ChevronRight size={20} />
+                        {step === 3 ? 'Skip / Next' : 'Next'} <ChevronRight size={20} />
                     </button>
                 )}
             </div>

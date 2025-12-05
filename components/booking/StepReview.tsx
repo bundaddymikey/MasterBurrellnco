@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, User, Mail, Phone, MapPin, Loader2 } from 'lucide-react';
+import { SERVICES } from '../../constants';
 
 interface StepReviewProps {
     data: any;
@@ -68,6 +69,16 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
         });
     };
 
+    // Calculate Total
+    const selectedService = SERVICES.find(s => s.id === data.serviceId);
+    const basePrice = selectedService
+        ? (data.vehicleType === 'large' ? selectedService.priceLarge : selectedService.priceSedan)
+        : 0;
+
+    const addons = SERVICES.filter(s => data.addonIds?.includes(s.id));
+    const addonsTotal = addons.reduce((sum, addon) => sum + addon.price, 0);
+    const total = basePrice + addonsTotal;
+
     return (
         <div className="space-y-8">
             <div className="text-center">
@@ -85,10 +96,23 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
                             <span className="text-white capitalize">{data.vehicleType}</span>
                         </div>
                         <div className="flex justify-between">
-                            <span className="text-slate-400">Service</span>
+                            <span className="text-slate-400">Package</span>
                             <span className="text-white capitalize">{data.serviceId}</span>
                         </div>
-                        <div className="flex justify-between">
+
+                        {addons.length > 0 && (
+                            <div className="border-t border-white/5 pt-2 mt-2">
+                                <span className="text-slate-400 block mb-1">Add-ons:</span>
+                                {addons.map(addon => (
+                                    <div key={addon.id} className="flex justify-between pl-2">
+                                        <span className="text-slate-300 text-xs">{addon.title}</span>
+                                        <span className="text-brand-gold text-xs">+${addon.price}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        <div className="flex justify-between border-t border-white/5 pt-2 mt-2">
                             <span className="text-slate-400">Date</span>
                             <span className="text-white">
                                 {(() => {
@@ -104,7 +128,7 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
                         </div>
                         <div className="border-t border-white/10 pt-3 flex justify-between font-bold text-lg">
                             <span className="text-brand-gold">Total (Est.)</span>
-                            <span className="text-white">$150.00</span>
+                            <span className="text-white">${total}.00</span>
                         </div>
                     </div>
                 </div>
