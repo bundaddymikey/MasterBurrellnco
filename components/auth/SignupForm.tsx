@@ -1,4 +1,3 @@
-```
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -32,7 +31,7 @@ export const SignupForm: React.FC = () => {
     try {
       // Simulate verifying code (accept any 6 digit code for demo)
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       await signup(name, email);
       navigate('/dashboard');
     } catch (error) {
@@ -44,7 +43,7 @@ export const SignupForm: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-brand-darker flex items-center justify-center px-4 py-20">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
@@ -61,12 +60,12 @@ export const SignupForm: React.FC = () => {
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm overflow-hidden relative">
           <AnimatePresence mode="wait">
             {step === 1 ? (
-              <motion.form 
+              <motion.form
                 key="step1"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                onSubmit={handleSendCode} 
+                onSubmit={handleSendCode}
                 className="space-y-5"
               >
                 <div>
@@ -129,9 +128,9 @@ export const SignupForm: React.FC = () => {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="primary" 
+                <Button
+                  type="submit"
+                  variant="primary"
                   className="w-full justify-center group"
                   disabled={isSubmitting}
                 >
@@ -143,12 +142,12 @@ export const SignupForm: React.FC = () => {
                 </Button>
               </motion.form>
             ) : (
-              <motion.form 
+              <motion.form
                 key="step2"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                onSubmit={handleVerifyAndSignup} 
+                onSubmit={handleVerifyAndSignup}
                 className="space-y-6"
               >
                 <div className="text-center mb-6">
@@ -174,16 +173,16 @@ export const SignupForm: React.FC = () => {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="primary" 
+                <Button
+                  type="submit"
+                  variant="primary"
                   className="w-full justify-center"
                   disabled={isSubmitting || verificationCode.length < 6}
                 >
                   {isSubmitting ? 'Verifying...' : 'Confirm & Create Account'}
                 </Button>
 
-                <button 
+                <button
                   type="button"
                   onClick={() => setStep(1)}
                   className="w-full text-sm text-slate-500 hover:text-white transition-colors"
@@ -207,4 +206,3 @@ export const SignupForm: React.FC = () => {
     </div>
   );
 };
-```
