@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, User, Mail, Phone, MapPin } from 'lucide-react';
+import { Check, User, Mail, Phone, MapPin, Loader2 } from 'lucide-react';
 
 interface StepReviewProps {
     data: any;
@@ -14,10 +14,58 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
         phone: '',
         address: ''
     });
+    const [isLocating, setIsLocating] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onSubmit(contact);
+    };
+
+    const handleUseCurrentLocation = () => {
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser");
+            return;
+        }
+
+        setIsLocating(true);
+
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            try {
+                const { latitude, longitude } = position.coords;
+                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`);
+                const data = await response.json();
+
+                if (data && data.address) {
+                    const addr = data.address;
+                    const zip = addr.postcode || '';
+                    const city = addr.city || addr.town || addr.village || addr.hamlet || '';
+                    const state = "CA"; // We generally expect CA based on business area
+
+                    // Construct clean address string
+                    const parts = [
+                        `${addr.house_number || ''} ${addr.road || ''}`.trim(),
+                        city,
+                        `${state} ${zip}`.trim()
+                    ].filter(part => part.length > 0);
+
+                    const formattedAddress = parts.join(', ');
+
+                    setContact(prev => ({
+                        ...prev,
+                        address: formattedAddress
+                    }));
+                }
+            } catch (error) {
+                console.error("Error getting location:", error);
+                alert("Unable to retrieve address from location.");
+            } finally {
+                setIsLocating(false);
+            }
+        }, (error) => {
+            console.error("Geolocation error:", error);
+            alert("Unable to retrieve your location. Please ensure you have granted permission.");
+            setIsLocating(false);
+        });
     };
 
     return (
@@ -106,7 +154,18 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
                         </div>
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-slate-400 mb-2">Service Address</label>
+                        <div className="flex justify-between items-center mb-2">
+                            <label className="block text-sm font-medium text-slate-400">Service Address</label>
+                            <button
+                                type="button"
+                                onClick={handleUseCurrentLocation}
+                                disabled={isLocating}
+                                className="text-[10px] text-brand-gold flex items-center gap-1 hover:text-white transition-colors disabled:opacity-50 uppercase tracking-wider font-bold"
+                            >
+                                {isLocating ? <Loader2 size={10} className="animate-spin" /> : <MapPin size={10} />}
+                                {isLocating ? 'Locating...' : 'Use Current Location'}
+                            </button>
+                        </div>
                         <div className="relative">
                             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
                             <input
