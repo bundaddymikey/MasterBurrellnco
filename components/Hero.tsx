@@ -38,15 +38,10 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto w-full">
 
           {/* Location Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 bg-brand-gold/10 border border-brand-gold/20 rounded-full text-brand-gold text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6 md:mb-8 backdrop-blur-sm font-mono"
-          >
-            <MapPin size={12} />
-            Serving the Greater Rancho Cucamonga Area
-          </motion.div>
+          <div className="flex items-center gap-2 text-brand-gold mb-6 font-mono text-sm uppercase tracking-widest bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10 w-fit mx-auto">
+            <MapPin size={14} />
+            <span>Serving Southern California</span>
+          </div>
 
           {/* Headline */}
           <div className="overflow-hidden w-full">

@@ -179,8 +179,9 @@ export const AboutUs: React.FC = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       <div className="px-6 pb-6 pt-0">
-                        <p className="text-base text-slate-300">
-                          To elevate the standard of mobile car care by combining convenience with uncompromising quality. We pledge to use premium, eco-conscious products and advanced techniques to protect your investment, ensuring every client feels the pride of driving a showroom-ready vehicle.
+                        <p className="text-slate-400 leading-relaxed mb-6">
+                          Founded with a passion for automotive perfection, Burrell & Co. has set the standard for mobile detailing in Southern California.
+                          We believe that a detail is more than just a wash—it's a restoration of your vehicle's beauty and a preservation of its value.
                         </p>
                       </div>
                     </motion.div>

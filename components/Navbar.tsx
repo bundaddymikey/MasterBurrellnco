@@ -96,7 +96,28 @@ export const Navbar: React.FC = () => {
               </span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
             </Link>
-            <NavLink to="/#services">Services</NavLink>
+            <Link
+              to="/#services"
+              onClick={(e) => {
+                // If we're on the home page, prevent default navigation and just scroll
+                if (location.pathname === '/') {
+                  e.preventDefault();
+                  const element = document.getElementById('services');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+                // If we're on another page, the Link will navigate to /#services, 
+                // and we need a useEffect in App or Home to handle the scroll on load.
+                // But for now, let's just ensure the click works.
+              }}
+              className="relative group py-1"
+            >
+              <span className="text-sm font-medium text-slate-300 group-hover:text-brand-gold transition-colors uppercase tracking-widest relative z-10 font-mono">
+                Services
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            </Link>
             <NavLink to="/gallery">Gallery</NavLink>
             <NavLink to="/subscriptions">Subscriptions</NavLink>
             <NavLink to="/contact">Contact</NavLink>

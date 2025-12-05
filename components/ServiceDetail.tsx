@@ -32,7 +32,7 @@ export const ServiceDetail: React.FC = () => {
         <div className="min-h-screen bg-brand-darker pt-20">
             <SEO
                 title={`${service.title} | Burrell & Co Mobile Detailing`}
-                description={`Professional ${service.title} service by Burrell & Co. Mobile detailing in Rancho Cucamonga. ${service.description}`}
+                description={`Professional ${service.title} service by Burrell & Co. Mobile detailing in Southern California. ${service.description}`}
                 canonical={`https://burrellnco.com/services/${service.id}`}
             />
             {/* Hero Section */}

@@ -23,11 +23,11 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
     return (
         <div className="space-y-8">
             <div className="text-center">
-                <h2 className="text-2xl font-serif font-bold text-white mb-2">Final Details</h2>
-                <p className="text-slate-400">Where should we send the confirmation?</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 className="text-white font-bold mb-1">Location</h3>
+                    <p className="text-slate-400 text-sm">We come to you (Southern California)</p>
+                </div>
+            </div>     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Summary Card */}
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 h-fit">
                     <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">Booking Summary</h3>

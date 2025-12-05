@@ -48,9 +48,9 @@ export const StepService: React.FC<StepServiceProps> = ({ selected, onSelect }) 
                         key={service.id}
                         whileHover={{ y: -5 }}
                         onClick={() => onSelect(service.id)}
-                        className={`relative p-6 rounded-xl border-2 text-left transition-all ${selected === service.id
-                                ? 'bg-brand-gold/10 border-brand-gold'
-                                : 'bg-white/5 border-white/10 hover:border-brand-gold/30'
+                        className={`relative p-6 rounded-xl border text-left transition-all backdrop-blur-md ${selected === service.id
+                            ? 'bg-brand-gold/10 border-brand-gold shadow-[0_0_20px_rgba(255,195,0,0.15)]'
+                            : 'bg-black/40 border-white/10 hover:border-brand-gold/30 hover:bg-black/60'
                             }`}
                     >
                         {service.popular && (

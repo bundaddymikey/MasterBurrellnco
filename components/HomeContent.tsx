@@ -31,7 +31,7 @@ export const TrustSection: React.FC = () => (
                     Why Drivers Trust Burrell & Co
                 </h2>
                 <p className="text-lg leading-relaxed text-slate-400 max-w-2xl">
-                    Choosing a detailer is about trust. You need someone who is reliable, skilled, and respectful of your property. At Burrell & Co, we have built our reputation on delivering consistent excellence and peace of mind to our clients across the Inland Empire. We are not just washing cars; we are maintaining your investment.
+                    Choosing a detailer is about trust. You need someone who is reliable, skilled, and respectful of your property. At Burrell & Co, we have built our reputation on delivering consistent excellence and peace of mind to our clients across Southern California. We are not just washing cars; we are maintaining your investment.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-400 max-w-2xl">
                     Our fully licensed and insured service means you never have to worry. We arrive on time, communicate clearly, and stand behind our work with a satisfaction guarantee. Join the hundreds of satisfied customers who trust us with their vehicles week after week.
@@ -41,7 +41,7 @@ export const TrustSection: React.FC = () => (
                 {[
                     { icon: Shield, text: "Fully Licensed & Insured for your peace of mind" },
                     { icon: Star, text: "Expert care for everything from Daily Drivers to Exotics" },
-                    { icon: Clock, text: "Flexible scheduling in the Inland Empire corridor" },
+                    { icon: Clock, text: "Flexible scheduling in the Southern California corridor" },
                     { icon: CheckCircle, text: "100% Satisfaction Guarantee on every service" }
                 ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-brand-gold/30 transition-colors">

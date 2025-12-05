@@ -41,7 +41,7 @@ const HomePage: React.FC = () => (
   <PageWrapper>
     <SEO
       title="Burrell & Co Mobile Detailing | Premium Mobile Car Wash"
-      description="Burrell & Co brings premium mobile car wash and detailing service directly to your driveway in the Inland Empire. Book a professional hand wash and full interior detail at your home or office."
+      description="Burrell & Co brings premium mobile car wash and detailing service directly to your driveway in Southern California. Book a professional hand wash and full interior detail at your home or office."
       canonical="https://burrellnco.com/"
     />
     <Hero />
@@ -64,7 +64,7 @@ const BookingPage: React.FC = () => {
     <PageWrapper>
       <SEO
         title="Book Your Mobile Detail | Burrell & Co"
-        description="Schedule your premium mobile detailing service online. We come to you in Rancho Cucamonga and surrounding areas."
+        description="Schedule your premium mobile detailing service online. We come to you in Southern California."
         canonical="https://burrellnco.com/booking"
       />
       <div className="pt-24 pb-12 px-8 md:px-16 lg:px-24 max-w-7xl mx-auto min-h-screen">
