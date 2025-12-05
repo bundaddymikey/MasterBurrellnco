@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <span className="font-display font-bold text-xl md:text-3xl text-white tracking-tight leading-none">
                 Burrell <span className="text-brand-gold font-serif italic">&</span> Co.
               </span>
