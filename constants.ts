@@ -80,6 +80,48 @@ export const SERVICES: ServicePackage[] = [
     ],
     image: '/images/services/service-engine.jpg',
     processDescription: "We execute a water-safe degreasing and cleaning process, paying close attention to sensitive components, followed by a protective dressing for all plastic and rubber surfaces."
+  },
+  {
+    id: 'complete-sedan',
+    title: 'Complete Sedan Detail',
+    type: ServiceType.COMPLETE,
+    price: 380,
+    priceSedan: 380,
+    priceLarge: 380,
+    originalPrice: 430,
+    savings: 'Save $50',
+    duration: '4 - 5 Hours',
+    description: 'A full reset for your sedan inside and out. This service combines a complete interior detail with a full exterior shine.',
+    features: [
+      'Full Interior + Full Exterior',
+      'Deep Vacuum & Carpet Cleaning',
+      'Seat Cleaning & Crevice Detailing',
+      'Foam Wash & Clay Bar Treatment',
+      'Hand Wax & Streak Free Glass'
+    ],
+    image: '/images/services/service-wash.jpg', // Reusing wash image as base
+    processDescription: "A comprehensive restoration service that combines our deep interior cleaning with a full exterior detail. We leave no corner untouched, ensuring your sedan looks and feels brand new."
+  },
+  {
+    id: 'complete-truck',
+    title: 'Complete Truck Detail',
+    type: ServiceType.COMPLETE,
+    price: 450,
+    priceSedan: 450,
+    priceLarge: 450,
+    originalPrice: 500,
+    savings: 'Save $50',
+    duration: '5 - 6 Hours',
+    description: 'A complete top to bottom restoration for larger vehicles. This package bundles a premium interior detail with a full exterior detail.',
+    features: [
+      'Full Interior + Full Exterior',
+      'Deep Cleaning of Carpets & Seats',
+      'Hard to Reach Areas',
+      'Full Exterior Wash & Clay Bar',
+      'Hand Wax, Wheels, Tires & Trim'
+    ],
+    image: '/images/services/service-exterior.jpg', // Reusing exterior image as base
+    processDescription: "Designed for larger vehicles, this package provides a complete overhaul. From the roof to the wheels, and every inch of the interior, we restore your truck or SUV to showroom condition."
   }
 ];
 

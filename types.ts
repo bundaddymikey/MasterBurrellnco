@@ -2,7 +2,8 @@ export enum ServiceType {
   MAINTENANCE = 'Maintenance Wash',
   INTERIOR = 'Full Interior Detail',
   EXTERIOR = 'Full Exterior Detail',
-  ENGINE = 'Engine Bay Cleaning'
+  ENGINE = 'Engine Bay Cleaning',
+  COMPLETE = 'Complete Detail'
 }
 
 export interface ServicePackage {
@@ -12,6 +13,8 @@ export interface ServicePackage {
   price: number;
   priceSedan?: number;
   priceLarge?: number; // SUV/Truck
+  originalPrice?: number;
+  savings?: string;
   pricingDetails?: string;
   duration: string;
   description: string;

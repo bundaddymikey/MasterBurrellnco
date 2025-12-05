@@ -82,20 +82,34 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
         </p>
 
         {/* Dynamic Price */}
-        <div className="mb-6 flex items-baseline gap-2">
-          <span className="text-brand-gold text-lg font-bold">$</span>
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={currentPrice}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="text-4xl font-bold text-white font-sans"
-            >
-              {currentPrice}
-            </motion.span>
-          </AnimatePresence>
-          <span className="text-slate-500 text-sm font-mono uppercase">Starting At</span>
+        {/* Dynamic Price */}
+        <div className="mb-6">
+          <div className="flex items-baseline gap-2">
+            <span className="text-brand-gold text-lg font-bold">$</span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentPrice}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-4xl font-bold text-white font-sans"
+              >
+                {currentPrice}
+              </motion.span>
+            </AnimatePresence>
+            {!service.originalPrice && (
+              <span className="text-slate-500 text-sm font-mono uppercase">Starting At</span>
+            )}
+          </div>
+
+          {service.originalPrice && (
+            <div className="flex items-center gap-2 mt-1">
+              <span className="text-slate-500 text-sm font-mono line-through">Normally ${service.originalPrice}</span>
+              {service.savings && (
+                <span className="text-brand-gold text-sm font-bold font-mono">({service.savings})</span>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="space-y-3 mb-8 flex-grow">
