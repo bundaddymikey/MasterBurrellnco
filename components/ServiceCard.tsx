@@ -128,7 +128,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
 
           <Link
             to={`/services/${service.id}`}
-            className="block text-center mt-4 text-xs text-slate-500 hover:text-white uppercase tracking-widest transition-colors"
+            className="block text-center mt-4 text-xs text-slate-500 hover:text-white uppercase tracking-widest transition-colors font-mono"
           >
             View Details
           </Link>
