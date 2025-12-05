@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm text-slate-500 font-mono uppercase tracking-wider">Service Area</p>
-                                        <p className="text-lg font-medium">Rancho Cucamonga & Inland Empire</p>
+                                        <p className="text-lg font-medium">Southern California</p>
                                     </div>
                                 </div>
                             </div>

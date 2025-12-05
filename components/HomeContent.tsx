@@ -16,7 +16,7 @@ export const IntroSection: React.FC = () => (
                     Our team specializes in careful hand washing and paint-safe methods designed to preserve your vehicle's finish. Unlike automated tunnels that can leave swirls and scratches, we use premium microfiber towels, pH-neutral shampoos, and professional-grade products to ensure a scratch-free, showroom-level result every time. From daily drivers to high-end luxury vehicles, we treat every car with the respect it deserves, ensuring it looks its absolute best.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-400 max-w-3xl">
-                    Serving the entire Inland Empire, including Rancho Cucamonga, Fontana, Upland, and Ontario, we are dedicated to providing a superior customer experience. We handle everything from the water to the power, so all you have to do is hand us the keys. Whether you need a quick maintenance wash or a full paint correction and ceramic coating, Burrell & Co is your trusted partner for automotive care.
+                    Serving Southern California, we are dedicated to providing a superior customer experience. We handle everything from the water to the power, so all you have to do is hand us the keys. Whether you need a quick maintenance wash or a full paint correction and ceramic coating, Burrell & Co is your trusted partner for automotive care.
                 </p>
             </div>
         </div>
@@ -91,7 +91,7 @@ export const CTASection: React.FC = () => (
                 <Button to="/booking" variant="primary" className="min-w-[200px] text-lg py-4">
                     Book Now
                 </Button>
-                <Button to="/#contact" variant="outline" className="min-w-[200px] text-lg py-4">
+                <Button to="/contact" variant="outline" className="min-w-[200px] text-lg py-4">
                     Contact Us
                 </Button>
             </div>
