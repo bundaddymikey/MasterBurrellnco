@@ -42,7 +42,13 @@ export const StepReview: React.FC<StepReviewProps> = ({ data, onSubmit }) => {
                         </div>
                         <div className="flex justify-between">
                             <span className="text-slate-400">Date</span>
-                            <span className="text-white">{data.date}</span>
+                            <span className="text-white">
+                                {(() => {
+                                    if (!data.date) return '';
+                                    const [year, month, day] = data.date.split('-');
+                                    return `${parseInt(month)}/${parseInt(day)}/${year}`;
+                                })()}
+                            </span>
                         </div>
                         <div className="flex justify-between">
                             <span className="text-slate-400">Time</span>
