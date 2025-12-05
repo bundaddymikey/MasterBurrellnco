@@ -5,32 +5,32 @@ import { Button } from './Button';
 
 const PLANS = [
     {
-        name: "Maintenance",
-        price: "150",
+        name: "Bi-Weekly Maintenance",
+        price: "115",
         frequency: "Monthly",
-        description: "Perfect for keeping your daily driver in showroom condition.",
+        description: "Keep your vehicle spotless with two professional maintenance washes every month.",
         features: [
-            "1 Full Detail per month",
+            "2x 'The Monthly Reset' Washes",
             "Exterior Hand Wash & Wax",
             "Interior Vacuum & Wipe Down",
             "Tire Dressing & Rim Cleaning",
-            "Priority Scheduling"
-        ],
-        popular: false
-    },
-    {
-        name: "Executive",
-        price: "250",
-        frequency: "Bi-Weekly",
-        description: "The ultimate care package for those who demand perfection.",
-        features: [
-            "2 Full Details per month",
-            "Everything in Maintenance Plan",
-            "Leather Conditioning",
-            "Engine Bay Rinse",
-            "10% Off Additional Services"
+            "Save $15 per month"
         ],
         popular: true
+    },
+    {
+        name: "Total Restoration",
+        price: "325",
+        frequency: "Monthly",
+        description: "A complete reset for your vehicle every single month. The ultimate luxury package.",
+        features: [
+            "1x 'Complete Detail' (Any Size)",
+            "Full Interior + Full Exterior",
+            "Clay Bar & Hand Wax",
+            "Leather Conditioning",
+            "Save up to $125 per month"
+        ],
+        popular: false
     },
     {
         name: "Fleet / Family",
