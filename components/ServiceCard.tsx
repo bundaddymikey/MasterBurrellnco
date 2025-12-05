@@ -69,11 +69,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
       </div>
 
       <div className="p-6 flex-grow flex flex-col z-10 relative">
-        <h3 className="text-2xl font-sans font-bold text-white mb-2 uppercase tracking-wide group-hover:text-brand-gold transition-colors">
-          {service.title}
-        </h3>
+        <div className="min-h-[4rem] mb-2">
+          <h3 className="text-2xl font-sans font-bold text-white uppercase tracking-wide group-hover:text-brand-gold transition-colors line-clamp-2">
+            {service.title}
+          </h3>
+        </div>
 
-        <p className="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
+        <p className="text-slate-400 text-sm leading-relaxed mb-6 font-sans min-h-[2.5rem] line-clamp-2">
           {service.description}
         </p>
 

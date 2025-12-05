@@ -75,7 +75,8 @@ export const SERVICES: ServicePackage[] = [
       'Oil and Grime Elimination',
       'Safe Pressure Rinse',
       'Plastics and Hoses Dressed',
-      'Protective Matte Finish'
+      'Protective Matte Finish',
+      'Hood Underside Detail'
     ],
     image: '/gallery/ford-ranger/4.png',
     processDescription: "We execute a water-safe degreasing and cleaning process, paying close attention to sensitive components, followed by a protective dressing for all plastic and rubber surfaces."
