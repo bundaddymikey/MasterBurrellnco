@@ -18,7 +18,7 @@ export const SERVICES: ServicePackage[] = [
       'Complete Carpet Extraction',
       'Dash and Console Wipe Down'
     ],
-    image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=800&auto=format&fit=crop',
+    image: '/images/services/service-wash.jpg',
     processDescription: "Using pH-neutral products and meticulous two-bucket methods, we focus on safe surface decontamination, tire/rim renewal, and light interior conditioning to maintain your vehicle's weekly shine."
   },
   {
@@ -38,7 +38,7 @@ export const SERVICES: ServicePackage[] = [
       'Vent and Crevice Purge',
       'Trunk and Cargo Refresh'
     ],
-    image: '/gallery/mercedes-gle/2.png',
+    image: '/images/services/service-interior.jpg',
     popular: true
   },
   {
@@ -58,7 +58,7 @@ export const SERVICES: ServicePackage[] = [
       'Bug and Tar Elimination',
       '3 Month Ceramic Sealant'
     ],
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop',
+    image: '/images/services/service-exterior.jpg',
     processDescription: "This process is focused on deep decontamination and protection. We execute a multi-step cleanse, including fallout removal and clay barring, to perfect the finish before locking in a 3-month protective sealant."
   },
   {
