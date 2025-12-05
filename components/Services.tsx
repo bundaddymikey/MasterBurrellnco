@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { SERVICES } from '../constants';
 import { ServiceCard } from './ServiceCard';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Car, Truck } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -44,30 +45,35 @@ export const Services: React.FC = () => {
           </p>
 
           {/* Pricing Toggle */}
-          <div className="inline-flex bg-black/40 backdrop-blur-sm p-1 rounded-full border border-white/10 relative">
-            <motion.div
-              className="absolute top-1 bottom-1 bg-brand-gold rounded-full z-0"
-              initial={false}
-              animate={{
-                left: vehicleType === 'sedan' ? '4px' : '50%',
-                width: 'calc(50% - 4px)'
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-            <button
-              onClick={() => setVehicleType('sedan')}
-              className={`relative z-10 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${vehicleType === 'sedan' ? 'text-brand-darker' : 'text-slate-400 hover:text-white'
-                }`}
-            >
-              Sedan
-            </button>
-            <button
-              onClick={() => setVehicleType('large')}
-              className={`relative z-10 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${vehicleType === 'large' ? 'text-brand-darker' : 'text-slate-400 hover:text-white'
-                }`}
-            >
-              SUV / Truck
-            </button>
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-slate-400 text-xs font-mono uppercase tracking-widest">Pricing For</span>
+            <div className="inline-flex bg-black/40 backdrop-blur-md p-1.5 rounded-full border border-white/10 relative shadow-2xl">
+              <motion.div
+                className="absolute top-1.5 bottom-1.5 bg-brand-gold rounded-full z-0 shadow-[0_0_15px_rgba(255,195,0,0.3)]"
+                initial={false}
+                animate={{
+                  left: vehicleType === 'sedan' ? '6px' : '50%',
+                  width: 'calc(50% - 6px)'
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+              <button
+                onClick={() => setVehicleType('sedan')}
+                className={`relative z-10 px-8 py-3 rounded-full flex items-center gap-2 transition-colors duration-200 ${vehicleType === 'sedan' ? 'text-brand-darker' : 'text-slate-400 hover:text-white'
+                  }`}
+              >
+                <Car size={18} className={vehicleType === 'sedan' ? 'stroke-[2.5]' : ''} />
+                <span className="text-sm font-bold uppercase tracking-wider">Sedan</span>
+              </button>
+              <button
+                onClick={() => setVehicleType('large')}
+                className={`relative z-10 px-8 py-3 rounded-full flex items-center gap-2 transition-colors duration-200 ${vehicleType === 'large' ? 'text-brand-darker' : 'text-slate-400 hover:text-white'
+                  }`}
+              >
+                <Truck size={18} className={vehicleType === 'large' ? 'stroke-[2.5]' : ''} />
+                <span className="text-sm font-bold uppercase tracking-wider">SUV / Truck</span>
+              </button>
+            </div>
           </div>
         </div>
 
