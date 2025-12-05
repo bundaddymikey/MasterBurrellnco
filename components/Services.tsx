@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { SERVICES } from '../constants';
+import { ServiceType } from '../types';
 import { ServiceCard } from './ServiceCard';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Car, Truck } from 'lucide-react';
@@ -78,8 +79,11 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Mobile: Horizontal Scroll Snap | Desktop: Grid */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 -mx-6 px-6 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:pb-0 md:mx-0 md:px-0 md:overflow-visible">
-          {SERVICES.map((service) => (
+        import {ServiceType} from '../types';
+
+        // ... inside component ...
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 -mx-6 px-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:pb-0 md:mx-0 md:px-0 md:overflow-visible justify-center">
+          {SERVICES.filter(s => s.type !== ServiceType.ENGINE).map((service) => (
             <div
               key={service.id}
               className="flex-shrink-0 w-[85vw] sm:w-[400px] snap-center md:w-auto md:snap-align-none"
