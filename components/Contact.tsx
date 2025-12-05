@@ -81,6 +81,16 @@ export const Contact: React.FC = () => {
                                     </div>
                                 </a>
 
+                                <a href="tel:3109124666" className="flex items-center gap-4 text-slate-300 hover:text-brand-gold transition-colors group">
+                                    <div className="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform">
+                                        <Phone size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-slate-500 font-mono uppercase tracking-wider">Business Line</p>
+                                        <p className="text-lg font-medium">310-912-4666</p>
+                                    </div>
+                                </a>
+
                                 <a href="mailto:Shawn@Burrellnco.com" className="flex items-center gap-4 text-slate-300 hover:text-brand-gold transition-colors group">
                                     <div className="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform">
                                         <Mail size={24} />
