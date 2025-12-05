@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Check, Clock, ArrowRight } from 'lucide-react';
 import { ServicePackage } from '../types';
 import { Button } from './Button';
@@ -14,6 +14,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
+  const navigate = useNavigate();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!divRef.current) return;
@@ -33,7 +34,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`group relative bg-black/40 backdrop-blur-md border ${service.popular ? 'border-brand-gold' : 'border-white/10'} flex flex-col h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:z-10 overflow-hidden rounded-2xl`}
+      onClick={() => navigate(`/booking?service=${service.id}`)}
+      className={`group relative bg-black/40 backdrop-blur-md border ${service.popular ? 'border-brand-gold' : 'border-white/10'} flex flex-col h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:z-10 overflow-hidden rounded-2xl cursor-pointer`}
     >
       {/* Spotlight Effect Overlay */}
       <div
@@ -114,7 +116,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
           ))}
         </div>
 
-        <div className="mt-auto w-full">
+        <div className="mt-auto w-full" onClick={(e) => e.stopPropagation()}>
           <Button
             to={`/booking?service=${service.id}`}
             variant="primary"
