@@ -120,6 +120,7 @@ export const Navbar: React.FC = () => {
             </Link>
             <NavLink to="/gallery">Gallery</NavLink>
             <NavLink to="/subscriptions">Subscriptions</NavLink>
+
             <NavLink to="/contact">Contact</NavLink>
             <Link
               to="/booking"
@@ -164,6 +165,7 @@ export const Navbar: React.FC = () => {
             <motion.div variants={linkVariants}>
               <Link to="/subscriptions" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Subscriptions</Link>
             </motion.div>
+
             <motion.div variants={linkVariants}>
               <Link to="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-serif font-medium text-white hover:text-brand-gold transition-colors">Contact</Link>
             </motion.div>

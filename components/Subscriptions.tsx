@@ -14,8 +14,8 @@ const PLANS = [
             "Exterior Hand Wash & Wax",
             "Interior Vacuum & Wipe Down",
             "Tire Dressing & Rim Cleaning",
-            "Save $15 per month"
         ],
+        savings: "Save $15/mo",
         popular: true
     },
     {
@@ -28,8 +28,8 @@ const PLANS = [
             "Full Interior + Full Exterior",
             "Clay Bar & Hand Wax",
             "Leather Conditioning",
-            "Save up to $125 per month"
         ],
+        savings: "Save $125/mo",
         popular: false
     },
     {
@@ -44,6 +44,7 @@ const PLANS = [
             "On-Site Service",
             "Monthly Billing"
         ],
+        savings: null,
         popular: false
     }
 ];
@@ -91,9 +92,16 @@ export const Subscriptions: React.FC = () => {
 
                             <div className="mb-8">
                                 <h3 className="text-2xl font-serif font-bold text-white mb-2">{plan.name}</h3>
-                                <div className="flex items-baseline gap-1 mb-4">
-                                    <span className="text-4xl font-bold text-brand-gold">{plan.price === "Custom" ? "" : "$"}{plan.price}</span>
-                                    <span className="text-slate-400 font-mono text-sm">/{plan.frequency}</span>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="flex items-baseline gap-1">
+                                        <span className="text-4xl font-bold text-brand-gold">{plan.price === "Custom" ? "" : "$"}{plan.price}</span>
+                                        <span className="text-slate-400 font-mono text-sm">/{plan.frequency}</span>
+                                    </div>
+                                    {plan.savings && (
+                                        <span className="bg-brand-gold/10 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20">
+                                            {plan.savings}
+                                        </span>
+                                    )}
                                 </div>
                                 <p className="text-slate-400 text-sm leading-relaxed">{plan.description}</p>
                             </div>
@@ -108,8 +116,8 @@ export const Subscriptions: React.FC = () => {
                             </ul>
 
                             <Button
-                                to="/contact"
-                                variant={plan.popular ? 'primary' : 'outline'}
+                                to={plan.price === "Custom" ? "/contact" : `/subscribe/checkout?plan=${encodeURIComponent(plan.name)}`}
+                                variant="outline"
                                 className="w-full justify-center"
                             >
                                 {plan.price === "Custom" ? "Contact for Quote" : "Subscribe Now"}

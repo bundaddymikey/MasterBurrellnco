@@ -82,7 +82,6 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
         </p>
 
         {/* Dynamic Price */}
-        {/* Dynamic Price */}
         <div className="mb-6">
           <div className="flex items-baseline gap-2">
             <span className="text-brand-gold text-lg font-bold">$</span>
@@ -102,9 +101,11 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, vehicleType }
             )}
           </div>
 
-          {service.originalPrice && (
+          {(service.originalPrice || (service.id === 'complete-detail' && vehicleType === 'large')) && (
             <div className="flex items-center gap-2 mt-1">
-              <span className="text-slate-500 text-sm font-mono line-through">Normally ${service.originalPrice}</span>
+              <span className="text-slate-500 text-sm font-mono line-through">
+                Normally ${service.id === 'complete-detail' && vehicleType === 'large' ? 500 : service.originalPrice}
+              </span>
               {service.savings && (
                 <span className="text-brand-gold text-sm font-bold font-mono">({service.savings})</span>
               )}

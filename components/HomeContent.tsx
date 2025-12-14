@@ -13,7 +13,7 @@ export const IntroSection: React.FC = () => (
                     Burrell & Co is a professional mobile detailing service that comes directly to your home or workplace, offering a level of convenience and quality that traditional car washes simply cannot match. We understand that your time is valuable, which is why we bring our fully equipped mobile unit to you, whether you are at home relaxing or busy at the office.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-400 max-w-3xl mx-auto">
-                    Our team specializes in careful hand washing and paint-safe methods designed to preserve your vehicle's finish. Unlike automated tunnels that can leave swirls and scratches, we use premium microfiber towels, pH-neutral shampoos, and professional-grade products to ensure a scratch-free, showroom-level result every time. From daily drivers to high-end luxury vehicles, we treat every car with the respect it deserves, ensuring it looks its absolute best.
+                    Our team specializes in careful hand washing and paint safe methods designed to preserve your vehicle's finish. Unlike automated tunnels that can leave swirls and scratches, we use premium microfiber towels, pH neutral shampoos, and professional grade products to ensure a scratch free, showroom level result every time. From daily drivers to high end luxury vehicles, we treat every car with the respect it deserves, ensuring it looks its absolute best.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-400 max-w-3xl mx-auto">
                     Serving Southern California, we are dedicated to providing a superior customer experience. We handle everything from the water to the power, so all you have to do is hand us the keys. Whether you need a quick maintenance wash or a full paint correction and ceramic coating, Burrell & Co is your trusted partner for automotive care.
@@ -26,16 +26,18 @@ export const IntroSection: React.FC = () => (
 export const TrustSection: React.FC = () => (
     <section className="py-20 bg-brand-dark text-slate-200">
         <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 space-y-12">
-            <div className="text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+            <div className="text-center">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
                     Why Drivers Trust Burrell & Co
                 </h2>
-                <p className="text-lg leading-relaxed text-slate-400 max-w-2xl">
-                    Choosing a detailer is about trust. You need someone who is reliable, skilled, and respectful of your property. At Burrell & Co, we have built our reputation on delivering consistent excellence and peace of mind to our clients across Southern California. We are not just washing cars; we are maintaining your investment.
-                </p>
-                <p className="text-lg leading-relaxed text-slate-400 max-w-2xl">
-                    Our fully licensed and insured service means you never have to worry. We arrive on time, communicate clearly, and stand behind our work with a satisfaction guarantee. Join the hundreds of satisfied customers who trust us with their vehicles week after week.
-                </p>
+                <div className="space-y-6 max-w-3xl mx-auto">
+                    <p className="text-lg leading-relaxed text-slate-400">
+                        Choosing a detailer is about trust. You need someone who is reliable, skilled, and respectful of your property. At Burrell & Co, we have built our reputation on delivering consistent excellence and peace of mind to our clients across Southern California. We are not just washing cars; we are maintaining your investment.
+                    </p>
+                    <p className="text-lg leading-relaxed text-slate-400">
+                        Our fully licensed and insured service means you never have to worry. We arrive on time, communicate clearly, and stand behind our work with a satisfaction guarantee. Join the hundreds of satisfied customers who trust us with their vehicles week after week.
+                    </p>
+                </div>
             </div>
             <ul className="grid gap-6 md:grid-cols-2">
                 {[
@@ -63,7 +65,7 @@ export const ProcessSection: React.FC = () => (
             <div className="grid gap-8 md:grid-cols-4">
                 {[
                     { step: "01", title: "Seamless Booking", desc: "Select your service package online or call us directly. We'll confirm your appointment and handle the logistics." },
-                    { step: "02", title: "We Come to You", desc: "Our fully equipped mobile unit arrives at your home or office with its own water and power—no hookups needed." },
+                    { step: "02", title: "We Come to You", desc: "Our fully equipped mobile unit arrives at your home or office with its own water and power no hookups needed." },
                     { step: "03", title: "Precision Detail", desc: "We meticulously clean, correct, and protect every inch of your vehicle using premium products and safe techniques." },
                     { step: "04", title: "Final Inspection", desc: "We walk you through the results to ensure every detail meets our showroom standards before you pay." }
                 ].map((item, idx) => (

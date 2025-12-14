@@ -6,12 +6,14 @@ import { Services } from './components/Services';
 import { AboutUs } from './components/AboutUs';
 import { Testimonials } from './components/Testimonials';
 import { BookingWizard } from './components/booking/BookingWizard';
-import { ChatAssistant } from './components/ChatAssistant';
+
 import { Footer } from './components/Footer';
 import { Gallery } from './components/Gallery';
 import { ServiceDetail } from './components/ServiceDetail';
 import { Contact } from './components/Contact';
 import { Subscriptions } from './components/Subscriptions';
+import { SubscriptionCheckout } from './components/booking/SubscriptionCheckout';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { SEO } from './components/SEO';
 import { IntroSection, TrustSection, ProcessSection, CTASection } from './components/HomeContent';
@@ -92,6 +94,8 @@ function AppContent() {
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
           <Route path="/subscriptions" element={<PageWrapper><Subscriptions /></PageWrapper>} />
+          <Route path="/subscribe/checkout" element={<PageWrapper><SubscriptionCheckout /></PageWrapper>} />
+
           <Route path="/gallery" element={
             <PageWrapper>
               <SEO
@@ -121,7 +125,7 @@ function AppContent() {
           </Route>
         </Routes>
       </AnimatePresence>
-      <ChatAssistant />
+
       {/* Only show footer on non-dashboard pages */}
       {!location.pathname.includes('/dashboard') && <Footer />}
     </div>
